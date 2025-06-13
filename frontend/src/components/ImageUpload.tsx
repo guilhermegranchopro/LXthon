@@ -104,15 +104,18 @@ export default function ImageUpload({
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-full bg-white/80 backdrop-blur-sm border-0 shadow-lg">
       <CardContent className="p-6">
-        <div className="space-y-4">
+        <div className="space-y-6">
           {/* Upload Area */}
           <div
             className={`
-              relative border-2 border-dashed rounded-lg p-8 text-center transition-all duration-200
-              ${isDragOver ? 'border-blue-400 bg-blue-50' : 'border-gray-300 hover:border-gray-400'}
-              ${isLoading ? 'opacity-50 pointer-events-none' : 'cursor-pointer'}
+              relative border-2 border-dashed rounded-xl p-8 text-center transition-all duration-300
+              ${isDragOver 
+                ? 'border-blue-400 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 backdrop-blur-sm scale-[1.02]' 
+                : 'border-gray-300/60 hover:border-blue-300/60 hover:bg-gradient-to-br hover:from-blue-50/40 hover:to-indigo-50/40'
+              }
+              ${isLoading ? 'opacity-50 pointer-events-none' : 'cursor-pointer hover:shadow-md'}
             `}
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -134,49 +137,49 @@ export default function ImageUpload({
                   <img
                     src={selectedImage}
                     alt="Selected eye image"
-                    className="max-w-full h-auto max-h-64 rounded-lg shadow-md"
+                    className="max-w-full h-auto max-h-64 rounded-xl shadow-lg border border-white/20"
                   />
                   <Button
                     variant="destructive"
                     size="icon"
-                    className="absolute -top-2 -right-2 h-6 w-6 rounded-full"
+                    className="absolute -top-2 -right-2 h-7 w-7 rounded-full shadow-lg hover:scale-110 transition-transform"
                     onClick={(e) => {
                       e.stopPropagation()
                       clearImage()
                     }}
                   >
-                    <X className="h-3 w-3" />
+                    <X className="h-4 w-4" />
                   </Button>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 font-medium">
                   Click to change or drag a new image
                 </p>
               </div>
             ) : (
-              <div className="space-y-4">
-                <div className="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+              <div className="space-y-6">
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center shadow-inner">
                   {isDragOver ? (
-                    <Upload className="h-8 w-8 text-blue-500 animate-bounce" />
+                    <Upload className="h-10 w-10 text-blue-600 animate-bounce" />
                   ) : (
-                    <FileImage className="h-8 w-8 text-gray-400" />
+                    <FileImage className="h-10 w-10 text-blue-500" />
                   )}
                 </div>
                 
-                <div className="space-y-2">
-                  <p className="text-lg font-medium text-gray-900">
+                <div className="space-y-3">
+                  <p className="text-xl font-semibold text-gray-900">
                     {isDragOver ? 'Drop your image here' : 'Upload eye image'}
                   </p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-base text-gray-600">
                     Drag and drop an image file, or click to browse
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-sm text-gray-500">
                     Supports: JPG, PNG, GIF (max 10MB)
                   </p>
                 </div>
 
                 <Button 
                   variant="outline" 
-                  className="mt-4"
+                  className="mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-md hover:shadow-lg"
                   disabled={isLoading}
                 >
                   Choose File
