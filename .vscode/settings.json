@@ -1,5 +1,26 @@
 {
     "conventionalCommits.scopes": [
         "Next.js Setup & FastAPI Setup"
-    ]
+    ],
+    "python.defaultInterpreterPath": "./backend/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.linting.enabled": true,
+    "python.linting.ruffEnabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.formatting.provider": "none",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+            "source.fixAll": true
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "ruff.args": ["--config=backend/pyproject.toml"],
+    "ruff.fixAll": true,
+    "ruff.organizeImports": true,
+    "files.associations": {
+        "*.toml": "toml"
+    }
 }

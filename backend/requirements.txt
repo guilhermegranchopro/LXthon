@@ -1,3 +1,7 @@
+# NOTE: This file is kept for Docker compatibility
+# For development, use: uv pip install -e ".[dev]" 
+# Dependencies are defined in pyproject.toml
+
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 tensorflow==2.15.0
