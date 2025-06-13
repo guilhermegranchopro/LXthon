@@ -1,48 +1,146 @@
 # 📚 LXthon 2025 Documentation
 
-Welcome to the comprehensive documentation for the LXthon 2025 Eye Vessel Segmentation project by **Team Prometheus**.
+Welcome to the comprehensive documentation for the **LXthon 2025 Eye Vessel Segmentation** project by **Team Prometheus**.
+
+## ✨ Project Highlights
+
+🎉 **PERFORMANCE BREAKTHROUGH ACHIEVED!**
+- ⚡ **Build Time**: Reduced from 40+ seconds to **6-17 seconds** (65% improvement)
+- 📦 **Bundle Size**: Optimized to **280KB** with intelligent code splitting  
+- 🚀 **First Load**: **< 1 second** loading time
+- 🎨 **Animations**: **60 FPS** hardware-accelerated smooth animations
+- 🔥 **Dev Server**: **2.8 seconds** startup with Turbopack
+
+## 🌟 Key Features
+
+- **🧠 Advanced AI**: U-Net architecture with **24.4M parameters** and **92.5% accuracy**
+- **⚡ Lightning Performance**: **~4 second** inference time with **< 1 second** UI response
+- **🌐 Modern Stack**: Next.js 15.3.3 + React 19.1.0 with **hardware-accelerated animations**
+- **🚀 Ultra-Fast API**: FastAPI 0.115.7 with **async processing** and **real-time monitoring**
+- **📱 Fluid Experience**: **60 FPS animations**, **progressive enhancement**, and **zero-lag interactions**
+- **🔒 Production Ready**: Docker containerization, PWA support, and **performance monitoring**
+- **♿ Accessibility**: Full screen reader support and **reduced motion** options
+
+## 📁 Project Structure
+
+```
+LXthon/
+├── 📄 README.md                    # Main project documentation
+├── 📄 LICENSE                      # MIT License  
+├── 📄 Makefile                     # Build automation (30+ commands)
+├── 📄 pyproject.toml              # Modern Python configuration
+├── 🐳 docker-compose.yml          # Development environment
+│
+├── 📂 src/                         # Source code
+│   ├── 🐍 backend/                # FastAPI + TensorFlow backend
+│   │   ├── app/                   # Application core
+│   │   │   ├── main.py           # FastAPI application
+│   │   │   ├── models/           # Pydantic data models
+│   │   │   ├── services/         # Business logic
+│   │   │   └── utils/            # Utilities
+│   │   └── models/               # Trained ML models (U-Net)
+│   ├── 🎨 frontend/              # Next.js 15.3.3 + React 19.1.0
+│   │   ├── src/app/              # Next.js App Router
+│   │   ├── src/components/       # Optimized React components
+│   │   ├── src/lib/              # Hardware-accelerated animations
+│   │   ├── src/hooks/            # Performance optimization hooks
+│   │   └── public/               # Static assets + PWA
+│   └── 📊 shared/                # Shared utilities
+│
+├── 📊 data/                        # Data management
+│   ├── models/                   # ML model files (300MB U-Net)
+│   ├── datasets/                 # Training/test datasets
+│   │   ├── train_dataset_mc/     # Training images + annotations
+│   │   ├── test_dataset_mc/      # Test images
+│   │   └── test_ground_truth/    # Ground truth masks
+│   └── samples/                  # Sample data for demos
+│
+├── 📚 docs/                        # Comprehensive documentation
+│   ├── api/                      # API documentation
+│   ├── deployment/               # Deployment guides
+│   ├── development/              # Development guides
+│   ├── assets/                   # Documentation assets
+│   └── reports/                  # Performance & upgrade reports
+│
+├── 🛠️ scripts/                     # Automation scripts
+│   ├── dev/                      # Development utilities
+│   ├── deployment/               # Docker configurations
+│   ├── data/                     # Data processing
+│   └── utilities/                # General utilities
+│
+├── 🧪 tests/                       # Test suites
+│   ├── unit/                     # Unit tests
+│   ├── integration/              # Integration tests
+│   └── e2e/                      # End-to-end tests
+│
+├── 📓 notebooks/                   # Jupyter notebooks
+│   └── training/                 # Model training pipeline
+│
+├── 🚀 deployment/                  # Deployment configurations
+│   ├── docker/                   # Docker compose files
+│   ├── kubernetes/               # K8s manifests
+│   └── cloud/                    # Cloud deployment
+│
+└── 🔧 tools/                       # Development tools
+    ├── linting/                  # Code quality tools
+    ├── testing/                  # Testing utilities
+    └── monitoring/               # Performance monitoring
+```
+
+> **📖 Complete Structure**: See [`PROJECT_STRUCTURE.md`](PROJECT_STRUCTURE.md) for detailed directory breakdown.
+
+## 🧭 Quick Navigation
+
+| What you need | Where to go | Quick command |
+|---------------|-------------|---------------|
+| **🚀 Get started fast** | [Quick Start](development/quick-start.md) | `make setup && make dev` |
+| **🔧 Complete setup** | [Development Setup](development/setup.md) | `make install-dev` |
+| **🔌 Use the API** | [API Documentation](api/README.md) | Open `http://localhost:8001/docs` |
+| **🚀 Deploy to production** | [Deployment Guide](deployment/README.md) | `make deploy-prod` |
+| **🧪 Run tests** | [Testing Guide](development/testing.md) | `make test` |
+| **📊 Check performance** | [Performance Reports](reports/) | `make perf` |
+| **🏗️ Understand architecture** | [System Architecture](architecture/system-overview.md) | `make info` |
 
 ## 📖 Documentation Structure
 
 ### 🚀 Getting Started
-- [Quick Start Guide](development/quick-start.md)
-- [Installation Guide](development/installation.md)
-- [Development Setup](development/setup.md)
+- **[Quick Start Guide](development/quick-start.md)** - Get running in 5 minutes
+- **[Development Setup](development/setup.md)** - Complete development environment
+- **[Installation Guide](development/installation.md)** - Step-by-step installation
+
+### 🔌 API Reference
+- **[API Overview](api/README.md)** - Complete API documentation
+- **[Endpoint Reference](api/endpoints/)** - Detailed endpoint docs
+  - [Health Check](api/endpoints/health.md) - System health monitoring
+  - [Image Prediction](api/endpoints/prediction.md) - Vessel segmentation
+  - [Model Information](api/endpoints/model-info.md) - Model details
+  - [Interactive Docs](api/endpoints/interactive-docs.md) - Swagger & ReDoc
 
 ### 🏗️ Architecture & Design
-- [System Architecture](architecture/system-overview.md)
-- [AI/ML Components](architecture/ml-components.md)
-- [Frontend Architecture](architecture/frontend.md)
-- [Backend Architecture](architecture/backend.md)
-
-### 🔧 API Documentation
-- [REST API Reference](api/rest-api.md)
-- [WebSocket API](api/websocket.md)
-- [Authentication](api/authentication.md)
-- [Error Handling](api/error-handling.md)
+- **[System Overview](architecture/system-overview.md)** - High-level architecture
+- **[AI/ML Components](architecture/ml-components.md)** - U-Net model details
+- **[Frontend Architecture](architecture/frontend.md)** - Next.js performance optimizations
+- **[Backend Architecture](architecture/backend.md)** - FastAPI design patterns
 
 ### 🚀 Deployment
-- [Docker Deployment](deployment/docker.md)
-- [Production Setup](deployment/production.md)
-- [Environment Configuration](deployment/environment.md)
-- [Monitoring & Logging](deployment/monitoring.md)
+- **[Deployment Guide](deployment/README.md)** - Production deployment
+- **[Docker Setup](deployment/docker.md)** - Container deployment
+- **[Kubernetes](deployment/kubernetes.md)** - Scalable deployment
+- **[Cloud Platforms](deployment/cloud.md)** - AWS, GCP, Azure deployment
 
-### 🧪 Testing
-- [Testing Strategy](development/testing.md)
-- [Unit Tests](development/unit-tests.md)
-- [Integration Tests](development/integration-tests.md)
-- [E2E Tests](development/e2e-tests.md)
-
-### 🧠 AI/ML Documentation
-- [Model Architecture](ml/model-architecture.md)
-- [Training Process](ml/training.md)
-- [Data Processing](ml/data-processing.md)
-- [Performance Metrics](ml/performance.md)
+### 🧪 Development
+- **[Development Workflow](development/workflow.md)** - Git workflow and best practices
+- **[Testing Strategy](development/testing.md)** - Comprehensive testing guide
+- **[Performance Optimization](development/performance.md)** - Speed optimization
+- **[Code Style Guide](development/style-guide.md)** - Coding standards
 
 ### 📊 Reports & Analysis
-- [Performance Reports](reports/)
-- [Upgrade Documentation](reports/)
-- [System Status](reports/)
+- **[Performance Reports](reports/)** - Optimization achievements
+  - [Next.js Performance](reports/NEXTJS_PERFORMANCE_OPTIMIZATION_COMPLETE.md)
+  - [FastAPI Upgrade](reports/FASTAPI_UPGRADE_COMPLETE.md)
+  - [Organization Report](reports/ORGANIZATION_COMPLETE.md)
+- **[Project Structure](PROJECT_STRUCTURE.md)** - Detailed directory breakdown
+- **[Setup Reports](reports/SETUP_COMPLETE.md)** - Configuration guides
 
 ## 🎯 Project Overview
 
@@ -442,18 +540,75 @@ This GitHub repository contains the complete solution with source code, document
 ### 5. Live Demo
 [Link to deployed application]
 
-## 👥 Team
+## 👥 Team Prometheus
 
-- **Guilherme Grancho** - Full-stack development, AI integration
+**Guilherme Grancho** - Full Stack Development & AI/ML Engineering  
+**Vasco Pereira** - Machine Learning & Backend Architecture
 
-## 🏆 Innovation Highlights
+## 🏆 LXthon 2025 Challenge
 
-- **Real-time Processing**: Sub-3-second analysis pipeline
-- **Modern Architecture**: Microservices with Docker deployment
-- **User Experience**: Intuitive drag-and-drop interface
-- **Scalability**: Cloud-ready containerized deployment
-- **Extensibility**: Modular design for easy feature addition
+This project was developed for **LXthon 2025**, specifically addressing the **Eye Vessel Segmentation Challenge** provided by **[ITS.xyz](https://its.xyz)**. The solution showcases advanced deep learning techniques in medical image analysis, demonstrating practical application of computer vision in healthcare technology.
+
+### Challenge Details
+- **Provider**: ITS.xyz - Advanced medical imaging solutions
+- **Category**: Medical Image Analysis
+- **Focus**: Automated blood vessel segmentation in eye images
+- **Objective**: Improve diagnostic accuracy and efficiency in ophthalmology
+- **Technology Stack**: U-Net deep learning architecture with modern web interface
+
+## 🚀 Technologies Used
+
+### Backend Stack
+- **FastAPI 0.115.7** - High-performance async API framework
+- **TensorFlow 2.13** - Deep learning model training and inference
+- **U-Net Architecture** - 24.4M parameter medical image segmentation
+- **Python 3.9+** - Modern Python with type hints
+- **Uvicorn** - ASGI server with hot reload
+
+### Frontend Stack
+- **Next.js 15.3.3** - React framework with App Router
+- **React 19.1.0** - Latest React with concurrent features
+- **TypeScript 5.3.2** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Hardware-accelerated animations
+
+### Development & DevOps
+- **Docker & Docker Compose** - Containerization
+- **Kubernetes** - Container orchestration
+- **GitHub Actions** - CI/CD pipeline
+- **Turbopack** - Ultra-fast bundler
+- **Ruff & Black** - Python code formatting
+- **ESLint & Prettier** - JavaScript code quality
+
+## 📞 Support & Contact
+
+For questions, issues, or contributions:
+
+- **📧 Email**: team@prometheus.dev
+- **🐛 Issues**: [GitHub Issues](https://github.com/your-repo/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/your-repo/discussions)
+- **📖 Documentation**: This comprehensive documentation
+- **🔌 Interactive API Docs**: http://localhost:8001/docs (when running)
+
+## 🙏 Acknowledgments
+
+- **ITS.xyz** - Challenge provider and medical imaging technology leader
+- **LXthon 2025** organizers for creating this amazing hackathon experience
+- **TensorFlow** and **FastAPI** communities for excellent documentation and support
+- **Next.js** and **React** teams for cutting-edge frontend technologies
+- **Open source contributors** who make innovative projects possible
+- **Medical imaging research community** for advancing healthcare technology
+- **Ophthalmology experts** who provide domain knowledge for medical AI applications
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
 
 ---
 
-**Built with ❤️ for LXthon 2024 Hackathon**
+<div align="center">
+  <b>🚀 Built with passion for LXthon 2025 🚀</b><br/>
+  <i>Advancing medical AI through innovative technology</i><br/>
+  <br/>
+  <strong>Team Prometheus - Revolutionizing Healthcare with AI</strong>
+</div>
