@@ -1,4 +1,4 @@
-# <img src="docs/assets/logos/LXthon_logo.png" alt="LXthon Logo" width="20"/> LXthon 2025 - AI Eye Vessel Segmentation
+# <img src="docs/assets/logos/LXthon_logo.png" alt="LXthon Logo" width="80"/> LXthon 2025 - AI Eye Vessel Segmentation
 
 <div align="center">
   <img src="docs/assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
@@ -18,7 +18,7 @@
   
   **🎯 Challenge Provider:**  
   <img src="docs/assets/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
-  **[ITS.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
+  **[its.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
 </div>
 
 ---
