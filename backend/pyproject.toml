@@ -6,8 +6,6 @@ build-backend = "hatchling.build"
 name = "eye-vessel-segmentation-backend"
 version = "1.0.0"
 description = "Eye vessel segmentation backend using U-Net deep learning model"
-readme = "README.md"
-license = {file = "LICENSE"}
 requires-python = ">=3.9"
 authors = [
     {name = "Guilherme Grancho", email = "guilhermegrancho@example.com"},
@@ -17,37 +15,37 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: Healthcare Industry",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Scientific/Engineering :: Medical Science Apps.",
 ]
 
 dependencies = [
-    "fastapi==0.104.1",
-    "uvicorn[standard]==0.24.0",
-    "tensorflow==2.15.0",
-    "opencv-python==4.8.1.78",
-    "Pillow==10.1.0",
-    "numpy==1.24.3",
-    "python-multipart==0.0.6",
-    "aiofiles==23.2.1",
-    "pydantic==2.5.0",
-    "scikit-image==0.21.0",
-    "matplotlib==3.7.2",
+    "fastapi==0.115.7",
+    "uvicorn[standard]==0.34.3",
+    "tensorflow==2.16.1",
+    "opencv-python==4.10.0.84",
+    "Pillow==11.1.0",
+    "numpy>=1.23.5,<2.0",
+    "python-multipart==0.0.19",
+    "aiofiles==24.1.0",
+    "pydantic==2.11.6",
+    "scikit-image==0.24.0",
+    "matplotlib==3.10.3",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "ruff>=0.1.0",
-    "pytest>=7.0.0",
-    "pytest-asyncio>=0.21.0",
-    "httpx>=0.24.0",  # For testing FastAPI
-    "pre-commit>=3.0.0",
+    "ruff>=0.9.0",
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.25.0",
+    "httpx>=0.28.1",  # For testing FastAPI
+    "pre-commit>=4.1.0",
 ]
 
 [project.urls]
