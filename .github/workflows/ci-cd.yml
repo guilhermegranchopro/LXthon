@@ -1,0 +1,266 @@
+name: LXthon 2025 - CI/CD Pipeline
+# Team Prometheus: Guilherme Grancho & Vasco Pereira
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  PYTHON_VERSION: '3.11'
+  NODE_VERSION: '18'
+
+jobs:
+  # Backend Testing and Quality Checks
+  backend-tests:
+    runs-on: ubuntu-latest
+    name: Backend Tests & Quality
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Cache Python dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/pyproject.toml') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev,backend]"
+        
+    - name: Code formatting check
+      run: |
+        ruff format --check src/ tests/ scripts/
+        black --check src/ tests/ scripts/
+        
+    - name: Linting
+      run: |
+        ruff check src/ tests/ scripts/
+        
+    - name: Type checking
+      run: |
+        mypy src/ tests/ scripts/
+        
+    - name: Security check
+      run: |
+        bandit -r src/backend/ scripts/
+        safety check
+        
+    - name: Run unit tests
+      run: |
+        pytest tests/unit/ -v --cov=src/backend --cov-report=xml
+        
+    - name: Run integration tests
+      run: |
+        pytest tests/integration/ -v
+        
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        fail_ci_if_error: true
+
+  # Frontend Testing and Quality Checks
+  frontend-tests:
+    runs-on: ubuntu-latest
+    name: Frontend Tests & Quality
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        cache-dependency-path: src/frontend/package-lock.json
+        
+    - name: Install frontend dependencies
+      run: |
+        cd src/frontend
+        npm ci
+        
+    - name: Lint frontend code
+      run: |
+        cd src/frontend
+        npm run lint
+        
+    - name: Type check frontend
+      run: |
+        cd src/frontend
+        npm run type-check
+        
+    - name: Run frontend tests
+      run: |
+        cd src/frontend
+        npm run test
+        
+    - name: Build frontend
+      run: |
+        cd src/frontend
+        npm run build
+
+  # End-to-End Testing
+  e2e-tests:
+    runs-on: ubuntu-latest
+    name: End-to-End Tests
+    needs: [backend-tests, frontend-tests]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        
+    - name: Install dependencies
+      run: |
+        pip install -e ".[dev,backend]"
+        cd src/frontend && npm ci
+        
+    - name: Start services
+      run: |
+        # Start backend in background
+        cd src/backend && python -m uvicorn app.main:app --host 0.0.0.0 --port 8001 &
+        # Start frontend in background
+        cd src/frontend && npm run dev &
+        # Wait for services to start
+        sleep 30
+        
+    - name: Run E2E tests
+      run: |
+        pytest tests/e2e/ -v
+        
+    - name: Stop services
+      run: |
+        pkill -f uvicorn || true
+        pkill -f "npm run dev" || true
+
+  # Docker Build Test
+  docker-build:
+    runs-on: ubuntu-latest
+    name: Docker Build Test
+    needs: [backend-tests, frontend-tests]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+      
+    - name: Build Docker images
+      run: |
+        docker-compose build
+        
+    - name: Test Docker deployment
+      run: |
+        docker-compose up -d
+        sleep 30
+        # Test health endpoints
+        curl -f http://localhost:8001/health
+        curl -f http://localhost:3001
+        docker-compose down
+
+  # Security Scanning
+  security-scan:
+    runs-on: ubuntu-latest
+    name: Security Scanning
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+        
+    - name: Upload Trivy scan results
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+  # Documentation Build
+  docs-build:
+    runs-on: ubuntu-latest
+    name: Documentation Build
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Install docs dependencies
+      run: |
+        pip install -e ".[docs]"
+        
+    - name: Build documentation
+      run: |
+        mkdocs build
+        
+    - name: Deploy documentation (main branch only)
+      if: github.ref == 'refs/heads/main'
+      run: |
+        mkdocs gh-deploy --force
+
+  # Performance Testing
+  performance-tests:
+    runs-on: ubuntu-latest
+    name: Performance Tests
+    needs: [backend-tests]
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Install dependencies
+      run: |
+        pip install -e ".[dev,backend]"
+        pip install locust
+        
+    - name: Start backend service
+      run: |
+        cd src/backend && python -m uvicorn app.main:app --host 0.0.0.0 --port 8001 &
+        sleep 10
+        
+    - name: Run performance tests
+      run: |
+        # Run basic load test
+        locust -f tests/performance/locustfile.py --headless -u 10 -r 2 -t 60s --host http://localhost:8001
+        
+    - name: Stop backend service
+      run: |
+        pkill -f uvicorn || true
