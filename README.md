@@ -2,6 +2,8 @@
 
 <div align="center">
   <img src="docs/assets/logos/LXthon_logo.png" alt="LXthon Logo" width="200"/>
+  <br/>
+  <img src="docs/assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="150"/>
   
   **Team Prometheus**  
   Guilherme Grancho • Vasco Pereira
@@ -16,6 +18,18 @@
 ## 🎯 Project Overview
 
 An advanced deep learning solution for automated blood vessel segmentation in slit-lamp eye images using state-of-the-art U-Net architecture. This project combines cutting-edge computer vision techniques with a modern web interface to provide real-time medical image analysis.
+
+### 🏢 Challenge Provider
+
+<div align="center">
+  <img src="docs/assets/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>
+  <br/>
+  <strong>Challenge provided by ITS.xyz</strong>
+  <br/>
+  <em>Advanced medical imaging solutions for healthcare innovation</em>
+</div>
+
+This project was developed for **LXthon 2025**, specifically addressing the **Eye Vessel Segmentation Challenge** provided by **[ITS.xyz](https://its.xyz)**. ITS.xyz is a leading technology company specializing in medical imaging solutions and AI-driven healthcare innovations. Their challenge focuses on advancing automated medical image analysis to improve diagnostic accuracy and efficiency in ophthalmology.
 
 ### 🌟 Key Features
 
@@ -270,7 +284,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🏆 LXthon 2025
 
-This project was developed for LXthon 2025, showcasing advanced deep learning techniques in medical image analysis. The solution demonstrates practical application of computer vision in healthcare technology.
+This project was developed for **LXthon 2025**, specifically addressing the **Eye Vessel Segmentation Challenge** provided by **ITS.xyz**. The solution showcases advanced deep learning techniques in medical image analysis, demonstrating practical application of computer vision in healthcare technology.
+
+### Challenge Details
+- **Provider**: ITS.xyz - Advanced medical imaging solutions
+- **Category**: Medical Image Analysis
+- **Focus**: Automated blood vessel segmentation in eye images
+- **Objective**: Improve diagnostic accuracy and efficiency in ophthalmology
+- **Technology Stack**: U-Net deep learning architecture with modern web interface
+
+The project exemplifies the intersection of artificial intelligence and healthcare, addressing real-world medical imaging challenges through innovative technology solutions.
 
 ## 📞 Support
 
@@ -281,10 +304,12 @@ For questions or support:
 
 ## 🙏 Acknowledgments
 
-- LXthon 2025 organizers
-- TensorFlow and FastAPI communities
-- Open source contributors
-- Medical imaging research community
+- **ITS.xyz** - Challenge provider and medical imaging technology leader
+- **LXthon 2025** organizers for creating this amazing hackathon experience
+- **TensorFlow** and **FastAPI** communities for excellent documentation and support
+- **Open source contributors** who make innovative projects possible
+- **Medical imaging research community** for advancing healthcare technology
+- **Ophthalmology experts** who provide domain knowledge for medical AI applications
 
 ---
 
