@@ -16,7 +16,7 @@ import {
   Layers,
   Sparkles
 } from 'lucide-react'
-import { AnalysisResult } from '@/types'
+import type { AnalysisResult } from '@/types'
 
 interface ResultDisplayProps {
   result: AnalysisResult
