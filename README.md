@@ -1,11 +1,74 @@
-# Eye Vessel Segmentation - AI Hackathon Solution
+# Eye Vessel Segmentation - AI Medical Imaging Solution
 
 🏆 **LXthon 2024 Hackathon Project**  
-🔬 **Challenge**: Find the blood vessels in the eye (provided by its.xyz)
+🔬 **Challenge**: Automated blood vessel detection in eye images (provided by its.xyz)
+
+> **📁 Repository Organized**: This project has been professionally organized with clean structure and modern tooling. See [ORGANIZATION_COMPLETE.md](ORGANIZATION_COMPLETE.md) for details.
 
 ## 🚀 Project Overview
 
 This project provides an AI-powered solution for automatically segmenting blood vessels in slit-lamp eye images using deep learning. The solution combines a **U-Net neural network** backend with a modern **Next.js** web interface to deliver fast, accurate vessel segmentation for ophthalmological analysis.
+
+## 📁 Project Structure
+
+```
+📦 eye-vessel-segmentation/
+├── 📄 README.md                    # Project overview and setup
+├── 📄 LICENSE                      # MIT License
+├── 📄 .gitignore                   # Git ignore rules
+├── 📄 .gitattributes              # Git LFS configuration
+├── 🐳 backend/                     # FastAPI + TensorFlow backend
+│   ├── 📄 Dockerfile              # Backend container
+│   ├── 📄 pyproject.toml          # Python dependencies (uv)
+│   ├── 📄 requirements.txt        # Docker compatibility
+│   ├── 📄 Makefile                # Development commands
+│   ├── 🐍 app/                    # Application code
+│   │   ├── 📄 main.py             # FastAPI application
+│   │   ├── 📁 models/             # Model definitions
+│   │   ├── 📁 services/           # Business logic
+│   │   └── 📁 utils/              # Utilities
+│   └── 🤖 models/                 # Trained model files
+├── 🎨 frontend/                    # Next.js + TypeScript frontend
+│   ├── 📄 Dockerfile              # Frontend container
+│   ├── 📄 package.json            # Node.js dependencies
+│   ├── 📄 next.config.js          # Next.js configuration
+│   ├── 📁 src/                    # Source code
+│   └── 📁 public/                 # Static assets
+├── 📊 dataset/                     # Training and test data
+│   ├── 📁 train_dataset_mc/       # Training images & annotations
+│   ├── 📁 test_dataset_mc/        # Test images
+│   └── 📁 test_ground_truth/      # Ground truth masks
+├── 📚 docs/                       # Documentation
+│   ├── 📁 images/                 # Project screenshots
+│   ├── 📁 api/                    # API documentation
+│   └── 📁 setup/                  # Setup guides
+├── 🛠️ scripts/                    # Automation scripts
+│   ├── 📁 dev/                    # Development scripts
+│   ├── 📁 deployment/             # Docker & deployment
+│   └── 📁 utils/                  # Utility scripts
+├── 🔧 tools/                      # Development tools
+│   ├── 📄 train_model.py          # Model training
+│   ├── 📄 create_demo.py          # Demo generation
+│   └── 📄 quick_train.py          # Quick training script
+├── 🧪 tests/                      # Test files
+│   ├── 📄 test_backend.py         # Backend tests
+│   ├── 📄 test_application.py     # Application tests
+│   └── 📄 validate_app.py         # Validation scripts
+├── 📓 notebooks/                  # Jupyter notebooks
+│   └── 📄 model_training.ipynb    # Training notebook
+└── 📊 logs/                       # Application logs
+```
+
+## 🧭 Quick Navigation
+
+| What you need | Where to go | Quick command |
+|---------------|-------------|---------------|
+| **Start developing** | [`scripts/dev/`](scripts/dev/) | `./scripts/dev/dev-setup-complete.sh` |
+| **Deploy application** | [`scripts/deployment/`](scripts/deployment/) | `docker-compose -f scripts/deployment/docker-compose.yml up` |
+| **Run tests** | [`tests/`](tests/) | `python tests/test_complete_system.py` |
+| **Train models** | [`tools/`](tools/) | `python tools/train_model.py` |
+| **Read documentation** | [`docs/`](docs/) | Open [`docs/README.md`](docs/README.md) |
+| **View project structure** | Root directory | Open [`docs/PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) |
 
 ## ✨ Features
 
@@ -37,18 +100,48 @@ This project provides an AI-powered solution for automatically segmenting blood 
 ### Prerequisites
 - Docker and Docker Compose
 - Git
+- Python 3.9+ (for local development)
+- Node.js 18+ (for frontend development)
 
 ### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd LXthon
+cd eye-vessel-segmentation
 ```
 
-### 2. Add Your Model
-Place your trained U-Net model file in the backend models directory:
+### 2. Quick Setup (Recommended)
 ```bash
-# Copy your trained model
-cp /path/to/your/unet_eye_segmentation.keras backend/models/
+# Complete development environment setup
+./scripts/dev/dev-setup-complete.sh
+```
+
+### 3. Start Development Servers
+```bash
+# Backend (FastAPI with hot reload)
+./scripts/dev/start-backend-dev.sh
+
+# Frontend (Next.js on port 3001)
+./scripts/dev/start-frontend.sh
+```
+
+### 4. Access the Application
+- 🎨 **Frontend**: http://localhost:3001
+- 🔧 **Backend API**: http://localhost:8000
+- 📖 **API Docs**: http://localhost:8000/docs
+
+## 🐳 Docker Deployment
+
+### Development
+```bash
+# Start with Docker Compose
+docker-compose -f scripts/deployment/docker-compose.yml up
+```
+
+### Production
+```bash
+# Production deployment
+docker-compose -f scripts/deployment/docker-compose.prod.yml up -d
+```
 ```
 
 ### 3. Start the Application
@@ -68,13 +161,29 @@ docker-compose up frontend
 
 ## 🔧 Development Setup
 
-### Backend Development
+## 🛠️ Development
+
+### Modern Python Development (Recommended)
+```bash
+cd backend
+
+# Setup with uv (fast package manager)
+make dev-setup
+
+# Development commands
+make run          # Start development server
+make lint         # Check code quality
+make format       # Format code
+make test         # Run tests
+```
+
+### Traditional Development
 ```bash
 cd backend
 
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
@@ -90,8 +199,20 @@ cd frontend
 # Install dependencies
 npm install
 
-# Run development server
+# Run development server (port 3001)
 npm run dev
+```
+
+### Testing
+```bash
+# Backend tests
+cd backend && pytest
+
+# Full application test
+python tests/test_complete_system.py
+
+# Validate setup
+python tests/validate_app.py
 ```
 
 ## 📖 API Documentation
@@ -164,28 +285,26 @@ Get information about the loaded model.
 ## 📁 Project Structure
 
 ```
-├── backend/                     # FastAPI backend
-│   ├── app/
-│   │   ├── main.py             # FastAPI application
-│   │   ├── models/             # Pydantic models
-│   │   ├── services/           # Business logic
-│   │   └── utils/              # Utility functions
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── models/                 # ML model files
-├── frontend/                   # Next.js frontend
-│   ├── src/
-│   │   ├── app/               # App router pages
-│   │   ├── components/        # React components
-│   │   └── types/             # TypeScript types
-│   ├── package.json
-│   └── Dockerfile
-├── dataset/                    # Training data
-│   └── train_dataset_mc/       # Images and GeoJSON files
-├── notebooks/                  # Development notebooks
-├── docker-compose.yml         # Development environment
-└── README.md                  # This file
+📦 eye-vessel-segmentation/
+├── 📄 README.md                    # Project overview and setup
+├── 📄 LICENSE                      # MIT License
+├── 🐳 backend/                     # FastAPI + TensorFlow backend
+│   ├── 📄 pyproject.toml          # Modern Python config (uv/ruff)
+│   ├── 📄 Makefile                # Development commands
+│   ├── 🐍 app/                    # Application code
+│   └── 🤖 models/                 # Trained model files
+├── 🎨 frontend/                    # Next.js + TypeScript frontend
+│   ├── 📄 package.json            # Node.js dependencies
+│   └── 📁 src/                    # Source code
+├── 📊 dataset/                     # Training and test data
+├── 📚 docs/                       # Documentation & guides
+├── 🛠️ scripts/                    # Development & deployment scripts
+├── 🔧 tools/                      # Training & utility tools
+├── 🧪 tests/                      # Test files & validation
+└── 📓 notebooks/                  # Jupyter notebooks
 ```
+
+> **📖 Detailed Structure**: See [`docs/PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) for complete directory breakdown.
 
 ## 🔬 Technical Details
 
