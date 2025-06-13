@@ -1,0 +1,11 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+tensorflow==2.15.0
+opencv-python==4.8.1.78
+Pillow==10.1.0
+numpy==1.24.3
+python-multipart==0.0.6
+aiofiles==23.2.1
+pydantic==2.5.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
