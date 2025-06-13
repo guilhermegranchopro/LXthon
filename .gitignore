@@ -167,6 +167,8 @@ temp/
 *.sw?
 
 # Model files (large files)
+*.h5
+*.keras
 *.pb
 *.ckpt
 *.pth

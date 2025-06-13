@@ -41,8 +41,7 @@ export default function Home() {
 
       // Prepare the request
       const requestData = {
-        image: base64Image,
-        model_name: 'unet_eye_segmentation'
+        image: base64Image
       }
 
       // Make API call
@@ -53,7 +52,7 @@ export default function Home() {
           headers: {
             'Content-Type': 'application/json',
           },
-          timeout: 30000, // 30 second timeout
+          timeout: 60000, // 60 second timeout for model inference
         }
       )
 

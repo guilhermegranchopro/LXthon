@@ -25,7 +25,7 @@ class ModelService:
         self.model_path = model_path or os.path.join(
             os.path.dirname(__file__), '../../models/unet_eye_segmentation.keras'
         )
-        self.input_size = (512, 512)  # Standard U-Net input size
+        self.input_size = (256, 256)  # Match the trained model input size
         
         # Configure logging
         logging.basicConfig(level=logging.INFO)
@@ -63,7 +63,7 @@ class ModelService:
         self.logger.info("Creating dummy model for testing")
         
         # Simple dummy U-Net architecture
-        inputs = keras.layers.Input(shape=(512, 512, 3))
+        inputs = keras.layers.Input(shape=(256, 256, 3))
         
         # Encoder
         x = keras.layers.Conv2D(64, 3, activation='relu', padding='same')(inputs)
@@ -95,15 +95,15 @@ class ModelService:
         
         self.logger.info("Dummy model created successfully")
     
-    def predict(self, base64_image: str) -> Tuple[np.ndarray, float, dict]:
+    def predict(self, image_input) -> dict:
         """
         Perform vessel segmentation on the input image.
         
         Args:
-            base64_image: Base64 encoded input image
+            image_input: Either base64 encoded string or numpy array image
             
         Returns:
-            Tuple of (segmentation_mask, confidence_score, metrics)
+            Dictionary with mask, confidence, and metrics
         """
         if not self.model_loaded:
             raise RuntimeError("Model not loaded. Please load the model first.")
@@ -111,8 +111,14 @@ class ModelService:
         start_time = time.time()
         
         try:
-            # Decode and preprocess the image
-            original_image = decode_base64_image(base64_image)
+            # Handle both base64 strings and numpy arrays
+            if isinstance(image_input, str):
+                original_image = decode_base64_image(image_input)
+            elif isinstance(image_input, np.ndarray):
+                original_image = image_input
+            else:
+                raise ValueError("Input must be either base64 string or numpy array")
+                
             original_size = original_image.shape[:2]
             
             self.logger.info(f"Processing image of size: {original_size}")
@@ -142,35 +148,42 @@ class ModelService:
             self.logger.info(f"Inference completed in {processing_time:.2f} seconds")
             self.logger.info(f"Vessel coverage: {metrics['vessel_percentage']:.2f}%")
             
-            return cleaned_mask, confidence_score, metrics
+            return {
+                "success": True,
+                "mask": cleaned_mask,
+                "confidence": confidence_score,
+                "processing_time": processing_time,
+                "vessel_metrics": metrics,
+                "message": "Segmentation completed successfully"
+            }
             
         except Exception as e:
             self.logger.error(f"Prediction failed: {str(e)}")
             raise
     
-    def predict_and_encode(self, base64_image: str) -> dict:
+    def predict_and_encode(self, image_input) -> dict:
         """
         Perform prediction and return results with base64 encoded mask.
         
         Args:
-            base64_image: Base64 encoded input image
+            image_input: Either base64 encoded string or numpy array image
             
         Returns:
-            Dictionary containing prediction results
+            Dictionary containing prediction results with base64 encoded mask
         """
         try:
             # Get prediction
-            mask, confidence, metrics = self.predict(base64_image)
+            result = self.predict(image_input)
             
             # Encode mask to base64
-            mask_base64 = encode_image_to_base64(mask, format="PNG")
+            mask_base64 = encode_image_to_base64(result['mask'], format="PNG")
             
             return {
                 "success": True,
                 "segmentation_mask": mask_base64,
-                "confidence_score": confidence,
-                "processing_time": metrics['processing_time'],
-                "vessel_metrics": metrics,
+                "confidence_score": result['confidence'],
+                "processing_time": result['processing_time'],
+                "vessel_metrics": result['vessel_metrics'],
                 "message": "Segmentation completed successfully"
             }
             

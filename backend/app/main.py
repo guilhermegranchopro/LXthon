@@ -6,7 +6,7 @@ import logging
 from typing import Optional
 
 from .models import PredictionRequest, PredictionResponse, HealthResponse, ErrorResponse
-from .services.model_service import model_service
+from .services import model_service
 from .utils.image_processing import encode_image_to_base64
 
 # Configure logging
