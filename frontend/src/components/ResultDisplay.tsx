@@ -7,6 +7,7 @@ import { Progress } from './ui/progress'
 import { 
   Download, 
   Eye, 
+  EyeOff, 
   Clock, 
   Target, 
   Activity,
@@ -23,6 +24,7 @@ interface ResultDisplayProps {
 }
 
 export default function ResultDisplay({ result, onDownload }: ResultDisplayProps) {
+  const [showOverlay, setShowOverlay] = useState(true)
   const [activeTab, setActiveTab] = useState<'original' | 'mask' | 'overlay'>('overlay')
 
   const downloadImage = (imageData: string, filename: string) => {
@@ -32,6 +34,12 @@ export default function ResultDisplay({ result, onDownload }: ResultDisplayProps
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
+  }
+
+  const createOverlayImage = () => {
+    // This would ideally be done on the backend, but for demo purposes
+    // we'll just return the mask with some styling
+    return result.segmentationMask
   }
 
   const formatMetrics = (value: number, decimals: number = 2) => {
@@ -172,6 +180,15 @@ export default function ResultDisplay({ result, onDownload }: ResultDisplayProps
               >
                 <Download className="h-4 w-4 mr-2" />
                 Vessels
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => downloadImage(createOverlayImage(), 'overlay.png')}
+                className="bg-white/80 backdrop-blur-sm hover:bg-white transition-colors border-gray-300"
+              >
+                <Download className="h-4 w-4 mr-2" />
+                Overlay
               </Button>
               {onDownload && (
                 <Button
