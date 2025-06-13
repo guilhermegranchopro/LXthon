@@ -1,36 +1,48 @@
 'use client'
 
+import { memo, useCallback } from 'react'
 import { Eye, Github, Activity } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { Button } from './ui/button'
 import Image from 'next/image'
 
-export default function Header() {
+const Header = memo(function Header() {
+  const handleGitHubClick = useCallback(() => {
+    window.open('https://github.com/guilhermegranchopro/LXthon/tree/main', '_blank', 'noopener,noreferrer')
+  }, [])
+
   return (
-    <header className="bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm sticky top-0 z-50">
+    <motion.header 
+      className="bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm sticky top-0 z-50"
+      initial={{ y: -64, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo and Title */}
-          <div className="flex items-center space-x-4">
+          <motion.div 
+            className="flex items-center space-x-4"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.3 }}
+          >
             <div className="flex items-center space-x-3">
-              {/* LXthon Logo */}
               <Image 
                 src="/logos/LXthon_logo.png" 
                 alt="LXthon Logo" 
                 width={45} 
                 height={45}
                 className="rounded-lg shadow-sm"
+                priority
               />
-              
-              {/* Team Prometheus Logo */}
               <Image 
                 src="/logos/prometheus_logo.png" 
                 alt="Team Prometheus Logo" 
                 width={40} 
                 height={40}
                 className="rounded-lg shadow-sm"
+                priority
               />
-              
-              {/* Eye Icon */}
               <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg shadow-md">
                 <Eye className="h-6 w-6 text-white" />
               </div>
@@ -45,11 +57,14 @@ export default function Header() {
                 <span className="text-blue-600 font-medium">Team Prometheus</span>
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Navigation */}
-          <div className="flex items-center space-x-4">
-            {/* ITS.xyz Badge */}
+          <motion.div 
+            className="flex items-center space-x-4"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
+          >
             <div className="hidden lg:flex items-center space-x-2">
               <Image 
                 src="/logos/its_logo.png" 
@@ -57,6 +72,7 @@ export default function Header() {
                 width={24} 
                 height={24}
                 className="rounded"
+                priority
               />
               <span className="text-sm text-gray-600 font-medium">Challenge by ITS.xyz</span>
             </div>
@@ -69,15 +85,17 @@ export default function Header() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => window.open('https://github.com/guilhermegranchopro/LXthon/tree/main', '_blank')}
+              onClick={handleGitHubClick}
               className="flex items-center space-x-2 hover:bg-gray-50 transition-colors"
             >
               <Github className="h-4 w-4" />
               <span className="hidden sm:inline">GitHub</span>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </header>
+    </motion.header>
   )
-}
+})
+
+export default Header
