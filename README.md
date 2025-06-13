@@ -1,9 +1,7 @@
-# 🏆 LXthon 2025 - AI Eye Vessel Segmentation
+# <img src="docs/assets/logos/LXthon_logo.png" alt="LXthon Logo" width="20"/> LXthon 2025 - AI Eye Vessel Segmentation
 
 <div align="center">
-  <img src="docs/assets/logos/LXthon_logo.png" alt="LXthon Logo" width="200"/>
-  <br/>
-  <img src="docs/assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="150"/>
+  <img src="docs/assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
   
   **🚀 Team Prometheus - Advanced Medical AI Solutions**  
   *Guilherme Grancho • Vasco Pereira*
