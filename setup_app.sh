@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "🚀 Eye Vessel Segmentation Application Setup"
-echo "=============================================="
+echo "============echo "Access points:"
+echo "- Frontend: http://localhost:3001"
+echo "- Backend API: http://localhost:8000"==============================="
 
 # Function to check if a command exists
 command_exists() {
@@ -81,6 +83,6 @@ echo "1. Backend: cd /home/guilhermegrancho/LXthon/backend && source venv/bin/ac
 echo "2. Frontend: cd /home/guilhermegrancho/LXthon/frontend && npm run dev"
 echo ""
 echo "Access points:"
-echo "- Frontend: http://localhost:3000"
+echo "- Frontend: http://localhost:3001"
 echo "- Backend API: http://localhost:8000"
 echo "- API Documentation: http://localhost:8000/docs"

@@ -35,7 +35,7 @@ cd frontend && npm run dev
 ```
 
 ## Access Points
-- **Frontend Application**: http://localhost:3000
+- **Frontend Application**: http://localhost:3001
 - **Backend API**: http://localhost:8000
 - **API Documentation**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health
@@ -107,7 +107,7 @@ All tests passed successfully:
 ### For Development
 1. Use the development setup (Option 1) for hot-reloading
 2. Backend runs on port 8000 with auto-reload
-3. Frontend runs on port 3000 with hot-reloading
+3. Frontend runs on port 3001 with hot-reloading
 4. Both services automatically restart on code changes
 
 ### For Testing
@@ -131,7 +131,7 @@ All tests passed successfully:
 ### Frontend Issues  
 - Install dependencies: `npm install`
 - Check Node.js version: `node --version` (should be >= 16)
-- Verify port 3000 is available: `netstat -tlnp | grep 3000`
+- Verify port 3001 is available: `netstat -tlnp | grep 3001`
 
 ### API Communication
 - Test health endpoint: `curl http://localhost:8000/health`

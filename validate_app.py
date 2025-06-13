@@ -124,7 +124,7 @@ def main():
         print("\nNext steps:")
         print("1. Start backend: cd /home/guilhermegrancho/LXthon/backend && source venv/bin/activate && uvicorn app.main:app --host 0.0.0.0 --port 8000")
         print("2. Start frontend: cd /home/guilhermegrancho/LXthon/frontend && npm run dev")
-        print("3. Open browser: http://localhost:3000")
+        print("3. Open browser: http://localhost:3001")
         return True
     else:
         print("❌ Some validation tests failed")

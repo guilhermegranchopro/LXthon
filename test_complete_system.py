@@ -216,7 +216,7 @@ def main():
         print("\n🌐 To start the full application:")
         print("  1. Backend: cd /home/guilhermegrancho/LXthon/backend && source venv/bin/activate && uvicorn app.main:app --host 0.0.0.0 --port 8000")
         print("  2. Frontend: cd /home/guilhermegrancho/LXthon/frontend && npm run dev")
-        print("  3. Open: http://localhost:3000")
+        print("  3. Open: http://localhost:3001")
         return True
     else:
         print("❌ Some tests failed - please check the issues")

@@ -185,7 +185,7 @@ def show_demo_instructions():
     print()
     print("2️⃣ Full Application (Docker):")
     print("   docker-compose up")
-    print("   # Open http://localhost:3000")
+    print("   # Open http://localhost:3001")
     print()
     print("3️⃣ Manual Development:")
     print("   # Backend: cd backend && python3 -m uvicorn app.main:app")

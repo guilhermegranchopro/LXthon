@@ -144,7 +144,7 @@ PYTHONPATH=/app
 LOG_LEVEL=INFO
 MODEL_PATH=/app/models/unet_eye_segmentation.keras
 MAX_UPLOAD_SIZE=10485760
-CORS_ORIGINS=["http://localhost:3000", "http://127.0.0.1:3000"]
+CORS_ORIGINS=["http://localhost:3001", "http://127.0.0.1:3001"]
 EOL
         print_success "Backend .env file created"
     fi
@@ -176,7 +176,7 @@ show_usage() {
     echo "   docker-compose up"
     echo ""
     echo "3. Access the application:"
-    echo "   Frontend: http://localhost:3000"
+    echo "   Frontend: http://localhost:3001"
     echo "   Backend API: http://localhost:8000"
     echo "   API Docs: http://localhost:8000/docs"
     echo ""

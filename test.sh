@@ -96,10 +96,10 @@ test_frontend() {
     print_status "Testing frontend..."
     
     # Test main page
-    run_test "Frontend main page" "curl -s http://localhost:3000 | grep -q 'Eye Vessel Segmentation'"
+    run_test "Frontend main page" "curl -s http://localhost:3001 | grep -q 'Eye Vessel Segmentation'"
     
     # Test static assets
-    run_test "Frontend CSS loading" "curl -s http://localhost:3000/_next/static/css/ || true"
+    run_test "Frontend CSS loading" "curl -s http://localhost:3001/_next/static/css/ || true"
 }
 
 # Test file uploads (with sample image)
@@ -174,7 +174,7 @@ main() {
     
     # Wait for services to be ready
     wait_for_service "http://localhost:8000/health" 30
-    wait_for_service "http://localhost:3000" 30
+    wait_for_service "http://localhost:3001" 30
     
     # Run all tests
     test_docker_services
@@ -233,7 +233,7 @@ case "${1:-}" in
         ;;
     --frontend-only)
         print_status "Testing frontend only..."
-        wait_for_service "http://localhost:3000" 30
+        wait_for_service "http://localhost:3001" 30
         test_frontend
         ;;
     --api-only)
