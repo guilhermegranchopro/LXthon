@@ -23,9 +23,9 @@
     <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="Watch LXthon 2025 Solution Presentation on YouTube" style="width:480px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
   </a>
   
-  **📄 View Our Presentation PDF:**  
-  <a href="LXthon_Presentation.pdf" target="_blank">
-    <img src="https://img.shields.io/badge/PDF-View_Presentation-blue?logo=adobeacrobatreader" alt="View PDF Presentation"/>
+  **📄 View Our Presentation PDF:**
+  <a href="LXthon_Presentation.pdf" target="_blank" title="View LXthon Presentation PDF">
+    <img src="image.png" alt="LXthon Presentation Preview" style="width:700px; max-width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 5px;"/>
   </a>
   
   <br/>
@@ -607,110 +607,3 @@ LXthon/
     ├── 📄 .env.development       # Development environment
     └── 📄 .env.production        # Production environment
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)  
-5. Open Pull Request
-
-### Development Guidelines
-
-- Follow PEP 8 for Python code
-- Use TypeScript for frontend development
-- Write comprehensive tests for new features
-- Update documentation accordingly
-- Ensure code passes all linting and type checks
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Team
-
-### Team Prometheus
-
-- **Guilherme Grancho** - Full Stack Development & AI Integration
-- **Vasco Pereira** - Machine Learning & Backend Architecture
-
-## 🏆 LXthon 2025
-
-This project was developed for **LXthon 2025**, specifically addressing the **Eye Vessel Segmentation Challenge** provided by **ITS.xyz**. The solution showcases advanced deep learning techniques in medical image analysis, demonstrating practical application of computer vision in healthcare technology.
-
-### Challenge Details
-
-- **Provider**: ITS.xyz - Advanced medical imaging solutions
-- **Category**: Medical Image Analysis & Computer Vision
-- **Focus**: Automated blood vessel segmentation in slit-lamp eye images
-- **Objective**: Improve diagnostic accuracy and efficiency in ophthalmology
-- **Technology Stack**: U-Net + EfficientNet with modern web interface
-- **Innovation**: Real-time processing with professional-grade UI/UX
-
-The project exemplifies the intersection of artificial intelligence and healthcare, addressing real-world medical imaging challenges through innovative technology solutions.
-
-## 🏆 **Project Impact & Achievements**
-
-### 🎯 **Technical Breakthroughs**
-- **🥇 Superior Performance**: F1-Score **0.73** exceeds industry benchmarks (0.65-0.70)
-- **⚡ Speed Innovation**: **4x faster** inference than traditional medical imaging solutions
-- **🧠 Advanced Architecture**: Novel U-Net + EfficientNet fusion with **258M parameters**
-- **🎨 UX Excellence**: **60 FPS** animations with **< 1 second** response times
-- **📦 Optimization**: **280KB** bundle size with intelligent code splitting
-
-### 🏥 **Medical AI Impact**
-- **🔬 Clinical Ready**: Precision vessel detection suitable for medical applications
-- **⚡ Real-time Processing**: Instant feedback for medical professionals
-- **📊 Quantitative Analysis**: Automated vessel coverage and confidence metrics
-- **🎯 Accessibility**: Intuitive interface for non-technical medical staff
-- **🔒 Enterprise Grade**: Security and monitoring for healthcare environments
-
-### 🚀 **Innovation Highlights**
-- **🌟 Cutting-edge Stack**: Next.js 15 + React 19 + TypeScript + FastAPI
-- **🎭 Fluid Experience**: Hardware-accelerated animations and zero-lag interactions
-- **📱 Modern PWA**: Offline support and native-like mobile experience
-- **🐳 Production Ready**: Docker containerization with comprehensive monitoring
-- **📚 Complete Documentation**: API docs, setup guides, and performance analysis
-
-### 🎊 **LXthon 2025 Achievement**
-> **"Revolutionary medical AI solution combining state-of-the-art deep learning with exceptional user experience engineering"**
-
-**Key Accomplishments:**
-- ✅ **Advanced AI Model**: Custom architecture achieving **73% F1-Score**
-- ✅ **Performance Engineering**: **4-second** inference with **60 FPS** UI
-- ✅ **Modern Architecture**: Production-ready full-stack application
-- ✅ **Medical Grade**: Clinical-quality vessel segmentation capabilities
-- ✅ **Open Source**: Complete codebase with comprehensive documentation
-
-## 📞 Support & Contact
-
-For questions, support, or collaboration:
-
-- 📧 **Email**: guilhermegranchopro@gmail.com
-- � **Issues**: [GitHub Issues](../../issues)
-- 📖 **Documentation**: [docs/](docs/)
-- 🌐 **Live Demo**: Available at deployed endpoints
-
-## 🙏 Acknowledgments
-
-- **ITS.xyz** - Challenge provider and medical imaging technology leader
-- **LXthon 2025** organizers for creating this amazing hackathon experience
-- **TensorFlow** and **FastAPI** communities for excellent documentation and support
-- **Next.js** and **React** teams for providing cutting-edge frontend technologies
-- **Open source contributors** who make innovative projects possible
-- **Medical imaging research community** for advancing healthcare technology
-- **Ophthalmology experts** who provide domain knowledge for medical AI applications
-
----
-
-<div align="center">
-  
-**🚀 Built with passion for LXthon 2025 🚀**
-
-*Advancing medical AI through innovative computer vision solutions*
-
-[![⭐ Star this repository](https://img.shields.io/github/stars/yourusername/LXthon-2025-Eye-Vessel-Segmentation?style=social)](../../stargazers)
-[![🍴 Fork this repository](https://img.shields.io/github/forks/yourusername/LXthon-2025-Eye-Vessel-Segmentation?style=social)](../../network/members)
-
-</div>
