@@ -1,3 +1,32 @@
+# ============================================
+# LXthon Project - Organized Structure
+# ============================================
+
+# Temporary files in root
+*.tmp
+*.temp
+test_*.py
+temp_*.md
+
+# Log files (keep logs/ directory structure)
+*.log
+logs/*.log
+!logs/README.md
+
+# Environment files (keep config/ structure)
+.env
+.env.*
+!config/.env.example
+
+# Development artifacts
+.DS_Store
+.vscode/settings.json
+.vscode/launch.json
+
+# ============================================
+# Original gitignore content
+# ============================================
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -146,7 +175,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+!frontend/public/logos/
 
 # Storybook build outputs
 .out
@@ -201,3 +230,9 @@ Dockerfile
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Frontend specific ignores
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+!frontend/public/logos/ # Ensure logos are tracked
