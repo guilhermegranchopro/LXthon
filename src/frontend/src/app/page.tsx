@@ -40,14 +40,14 @@ import {
   fastTransition
 } from '@/lib/animations'
 
-// Performance hooks
-import {
-  useDebounce,
-  useThrottle,
-  useAnimationState,
-  useFileProcessor,
-  usePerformanceMonitor
-} from '@/hooks/useOptimizations'
+// Performance monitoring imports removed
+// import {
+//   useDebounce,
+//   useThrottle,
+//   useAnimationState,
+//   useFileProcessor,
+//   usePerformanceMonitor
+// } from '@/hooks/useOptimizations'
 
 import type { PredictionResponse, AnalysisResult, ApiError } from '@/types'
 
@@ -67,10 +67,7 @@ const ResultDisplay = dynamic(() => import('@/components/ResultDisplay'), {
   loading: () => <div className="h-96 bg-gray-100 rounded-lg animate-pulse" />
 })
 
-const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitorClean'), {
-  ssr: false,
-  loading: () => null
-})
+// PerformanceMonitor removed to eliminate errors
 
 const PerformanceDashboard = dynamic(() => import('@/components/PerformanceDashboard'), {
   ssr: false,
@@ -146,10 +143,10 @@ export default function Home() {
   const [processingStage, setProcessingStage] = useState('')
   const [showStats, setShowStats] = useState(false)
 
-  // Performance hooks
+  // Performance hooks (monitoring removed)
   const { prefersReducedMotion } = useAnimationState()
   const { processFile, validateFile } = useFileProcessor()
-  const { measureStart, measureEnd } = usePerformanceMonitor()
+  // const { measureStart, measureEnd } = usePerformanceMonitor() // Removed
   const shouldReduceMotion = useReducedMotion()
 
   // Debounced progress for smoother updates
@@ -157,7 +154,7 @@ export default function Home() {
 
   // Animated stats with optimized timing
   const [animatedStats, setAnimatedStats] = useState({
-    accuracy: 0,
+    f1Score: 0,
     speed: 0,
     processed: 0
   })
@@ -167,7 +164,7 @@ export default function Home() {
     "Initializing AI model...",
     "Processing image data...",
     "Analyzing vessel patterns...",
-    "Applying U-Net segmentation...",
+    "Applying U-Net + EfficientNet segmentation...",
     "Calculating confidence metrics...",
     "Finalizing results..."
   ], [])
@@ -176,7 +173,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimatedStats({
-        accuracy: 92.5,
+        f1Score: 0.73,
         speed: 4,
         processed: 1000
       })
@@ -186,9 +183,9 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [])
 
-  // Optimized API call with performance monitoring
+  // Optimized API call (performance monitoring removed)
   const analyzeImage = useCallback(async (file: File, base64Image: string) => {
-    measureStart('image-analysis')
+    // measureStart('image-analysis') // Removed
     setIsLoading(true)
     setError(null)
     setProgress(0)
@@ -240,7 +237,7 @@ export default function Home() {
         }
 
         setResult(analysisResult)
-        measureEnd('image-analysis')
+        // measureEnd('image-analysis') // Removed
       } else {
         throw new Error(response.data.message || 'Analysis failed')
       }
@@ -266,7 +263,7 @@ export default function Home() {
       setIsLoading(false)
       setProgress(0)
     }
-  }, [processingStages, measureStart, measureEnd])
+  }, [processingStages]) // Removed measureStart, measureEnd
 
   // Optimized handlers
   const handleImageSelect = useCallback(async (file: File, base64: string) => {
@@ -360,7 +357,7 @@ export default function Home() {
               className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed"
               variants={optimizedFadeInUp}
             >
-              Advanced deep learning powered by <span className="font-semibold text-blue-600">U-Net architecture</span> 
+              Advanced deep learning powered by <span className="font-semibold text-blue-600">U-Net + EfficientNet architecture</span> 
               for precise blood vessel analysis in slit-lamp eye images. 
               <span className="block mt-2 text-gray-600">
                 Developed by Team Prometheus for the ITS.xyz challenge at LXthon 2025.
@@ -373,8 +370,8 @@ export default function Home() {
                 <LazyWrapper className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
                   <StatCard
                     icon={Target}
-                    value={`${animatedStats.accuracy.toFixed(1)}%`}
-                    label="Accuracy"
+                    value={`${animatedStats.f1Score.toFixed(2)}`}
+                    label="F1-Score"
                     color="text-green-600"
                     delay={0}
                   />
@@ -401,7 +398,7 @@ export default function Home() {
               className="flex flex-wrap justify-center gap-3 mb-12"
               variants={optimizedFadeInUp}
             >
-              <TechBadge icon={Brain} text="U-Net Architecture" variant="info" />
+              <TechBadge icon={Brain} text="U-Net + EfficientNet" variant="info" />
               <TechBadge icon={Zap} text="Real-time Processing" variant="success" />
               <TechBadge icon={Shield} text="Medical Grade" variant="warning" />
             </motion.div>
@@ -551,7 +548,7 @@ export default function Home() {
                             className="flex items-center space-x-2 text-sm text-gray-600 bg-blue-50 p-3 rounded-lg"
                           >
                             <TrendingUp className="h-4 w-4 text-blue-600" />
-                            <span>Our U-Net model is analyzing {(debouncedProgress * 512 * 512 / 100).toFixed(0)} pixels...</span>
+                            <span>Our U-Net + EfficientNet model is analyzing {(debouncedProgress * 512 * 512 / 100).toFixed(0)} pixels...</span>
                           </motion.div>
                         </div>
                       </CardContent>
@@ -739,7 +736,7 @@ export default function Home() {
                       <CardContent className="p-6">
                         <div className="space-y-4">
                           {[
-                            { icon: "🧠", title: "U-Net Architecture", desc: "Deep learning for medical imaging", color: "blue" },
+                            { icon: "🧠", title: "U-Net + EfficientNet", desc: "Deep learning for medical imaging", color: "blue" },
                             { icon: "⚡", title: "FastAPI Backend", desc: "High-performance API server", color: "green" },
                             { icon: "⚛️", title: "Next.js 15", desc: "Modern React framework", color: "purple" }
                           ].map((tech, index) => (
@@ -789,9 +786,9 @@ export default function Home() {
                               animate={{ opacity: 1 }}
                               transition={{ delay: 2 }}
                             >
-                              92.5%
+                              0.73
                             </motion.div>
-                            <p className="text-xs font-medium text-gray-600">Accuracy</p>
+                            <p className="text-xs font-medium text-gray-600">F1-Score</p>
                           </motion.div>
                           
                           <motion.div 
@@ -925,7 +922,7 @@ export default function Home() {
               {
                 emoji: "🤖",
                 title: "AI Technology",
-                description: "Advanced U-Net deep learning architecture specifically trained on slit-lamp eye images for precise vessel segmentation and analysis.",
+                description: "Advanced U-Net + EfficientNet deep learning architecture specifically trained on slit-lamp eye images for precise vessel segmentation and analysis.",
                 gradient: "from-blue-500 to-blue-600",
                 delay: 0
               },
@@ -973,7 +970,7 @@ export default function Home() {
       </main>
 
       <Footer />
-      <PerformanceMonitor />
+      {/* PerformanceMonitor removed to eliminate errors */}
       <PerformanceDashboard />
     </div>
   )

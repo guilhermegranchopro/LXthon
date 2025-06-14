@@ -57,13 +57,13 @@ export default function Footer() {
               <h3 className="text-lg font-bold">Solution</h3>
             </div>
             <p className="text-gray-300 text-sm">
-              Advanced U-Net deep learning model for precise blood vessel segmentation in slit-lamp eye images.
+              Advanced U-Net + EfficientNet deep learning model for precise blood vessel segmentation in slit-lamp eye images.
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="px-2 py-1 bg-blue-600/20 text-blue-300 text-xs rounded-full">Next.js</span>
               <span className="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded-full">FastAPI</span>
               <span className="px-2 py-1 bg-purple-600/20 text-purple-300 text-xs rounded-full">TensorFlow</span>
-              <span className="px-2 py-1 bg-orange-600/20 text-orange-300 text-xs rounded-full">U-Net</span>
+              <span className="px-2 py-1 bg-orange-600/20 text-orange-300 text-xs rounded-full">U-Net + EfficientNet</span>
             </div>
           </div>
         </div>
