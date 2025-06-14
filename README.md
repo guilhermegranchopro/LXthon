@@ -18,6 +18,18 @@
   
   <br/>
   
+  **📺 Watch Our Solution Presentation:**  
+  <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank" title="Watch LXthon 2025 Solution Presentation">
+    <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="Watch LXthon 2025 Solution Presentation on YouTube" style="width:480px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+  </a>
+  
+  **📄 View Our Presentation PDF:**  
+  <a href="LXthon_Presentation.pdf" target="_blank">
+    <img src="https://img.shields.io/badge/PDF-View_Presentation-blue?logo=adobeacrobatreader" alt="View PDF Presentation"/>
+  </a>
+  
+  <br/>
+  
   **🎯 Challenge Provider:**  
   <img src="assets/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
   **[its.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
