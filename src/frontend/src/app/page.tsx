@@ -67,7 +67,7 @@ const ResultDisplay = dynamic(() => import('@/components/ResultDisplay'), {
   loading: () => <div className="h-96 bg-gray-100 rounded-lg animate-pulse" />
 })
 
-const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor'), {
+const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitorClean'), {
   ssr: false,
   loading: () => null
 })
