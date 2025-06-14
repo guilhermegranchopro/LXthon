@@ -412,7 +412,7 @@ export default function Home() {
                   />
                   <StatCard
                     icon={Brain}
-                    value="24.4M"
+                    value="258M"
                     label="Parameters"
                     color="text-purple-600"
                     delay={0.2}
@@ -788,7 +788,7 @@ export default function Home() {
                               animate={{ opacity: 1 }}
                               transition={{ delay: 2.2 }}
                             >
-                              24.4M
+                              258M
                             </motion.div>
                             <p className="text-xs font-medium text-gray-600">Parameters</p>
                           </motion.div>
