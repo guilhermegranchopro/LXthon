@@ -1,7 +1,7 @@
-# <img src="frontend/public/logos/LXthon_logo.png" alt="LXthon Logo" width="40"/> LXthon 2025 - AI Eye Vessel Segmentation
+# <img src="assets/logos/LXthon_logo.png" alt="LXthon Logo" width="40"/> LXthon 2025 - AI Eye Vessel Segmentation
 
 <div align="center">
-  <img src="frontend/public/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
+  <img src="assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
   
   **🚀 Team Prometheus - Advanced Medical AI Solutions**  
   *Guilherme Grancho • Vasco Pereira*
@@ -19,13 +19,13 @@
   <br/>
   
   **🎯 Challenge Provider:**  
-  <img src="frontend/public/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
+  <img src="assets/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
   **[its.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
 </div>
 
 ---
 
-## � **BREAKTHROUGH RESULTS - AI Eye Vessel Segmentation**
+## **⚡ BREAKTHROUGH RESULTS - AI Eye Vessel Segmentation**
 
 <div align="center">
   
@@ -75,7 +75,7 @@ An **ultra-high-performance** deep learning solution for automated blood vessel 
 - **🔒 Production Ready**: Docker containerization, PWA support, and **performance monitoring**
 - **♿ Accessibility**: Full screen reader support and **reduced motion** options
 
-## � **Revolutionary Features**
+##  **📊 Revolutionary Features**
 
 ### 🧠 **Advanced AI Engine**
 - **🎯 Custom Architecture**: U-Net + EfficientNet fusion with **258M parameters**

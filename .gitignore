@@ -175,7 +175,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+!frontend/public/logos/
 
 # Storybook build outputs
 .out
@@ -230,3 +230,9 @@ Dockerfile
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Frontend specific ignores
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+!frontend/public/logos/ # Ensure logos are tracked
