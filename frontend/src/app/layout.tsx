@@ -11,7 +11,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Eye Vessel Segmentation | LXthon 2025 - Team Prometheus',
-  description: 'AI-powered blood vessel segmentation in slit-lamp eye images using U-Net deep learning. Built by Team Prometheus for LXthon 2025.',
+  description: 'AI-powered blood vessel segmentation in slit-lamp eye images using U-Net + EfficientNet deep learning. Built by Team Prometheus for LXthon 2025.',
   keywords: ['eye', 'vessel', 'segmentation', 'AI', 'machine learning', 'ophthalmology', 'LXthon', 'hackathon', 'prometheus'],
   authors: [{ name: 'Team Prometheus - Guilherme Grancho & Vasco Pereira' }],
 }

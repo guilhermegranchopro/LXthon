@@ -169,7 +169,7 @@ export default function Home() {
             <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm">
               <div className="flex items-center justify-center space-x-2">
                 <Target className="h-5 w-5 text-blue-600" />
-                <span className="text-sm font-medium text-gray-700">95%+ Accuracy</span>
+                <span className="text-sm font-medium text-gray-700">F1-Score 0.73</span>
               </div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm">
@@ -181,7 +181,7 @@ export default function Home() {
             <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm">
               <div className="flex items-center justify-center space-x-2">
                 <Award className="h-5 w-5 text-purple-600" />
-                <span className="text-sm font-medium text-gray-700">U-Net Architecture</span>
+                <span className="text-sm font-medium text-gray-700">U-Net + EfficientNet Architecture</span>
               </div>
             </div>
           </div>
@@ -240,7 +240,7 @@ export default function Home() {
                     </div>
                     <Progress value={progress} className="w-full h-3" />
                     <p className="text-sm text-gray-600">
-                      Our advanced U-Net model is analyzing blood vessels with precision. This may take a few seconds.
+                      Our advanced U-Net + EfficientNet model is analyzing blood vessels with precision. This may take a few seconds.
                     </p>
                   </div>
                 </CardContent>
@@ -357,7 +357,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">AI Technology</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Advanced U-Net deep learning architecture specifically trained on slit-lamp eye images for precise vessel segmentation and analysis.
+                  Advanced U-Net + EfficientNet deep learning architecture specifically trained on slit-lamp eye images for precise vessel segmentation and analysis.
                 </p>
               </CardContent>
             </Card>
