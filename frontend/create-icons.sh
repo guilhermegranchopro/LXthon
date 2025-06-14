@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Simple SVG icon for PWA
+cat > public/icons/icon.svg << 'EOF'
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="80" fill="url(#gradient)"/>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="200" r="80" fill="white" opacity="0.9"/>
+  <circle cx="256" cy="200" r="40" fill="none" stroke="white" stroke-width="8"/>
+  <path d="M256 160 L256 120 M256 280 L256 320 M296 200 L336 200 M176 200 L216 200" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  <text x="256" y="380" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="bold">AI</text>
+</svg>
+EOF
+
+# Convert to different sizes using simple copying (since we don't have imagemagick)
+cp public/icons/icon.svg public/icons/icon-512x512.png 2>/dev/null || echo "Note: SVG copied as PNG placeholder"
+cp public/icons/icon.svg public/icons/icon-192x192.png 2>/dev/null || echo "Note: SVG copied as PNG placeholder"
+
+echo "Basic PWA icons created"

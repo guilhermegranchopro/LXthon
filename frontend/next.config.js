@@ -1,15 +1,29 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-  // Image optimization
-  images: {
-    domains: ['localhost'],
-    formats: ['image/webp', 'image/avif'],
+  // Core optimizations for fast development
+  reactStrictMode: true,
+  
+  // Simplified experimental features
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@heroicons/react'],
   },
   
-  // Build optimizations
-  output: 'standalone',
+  // Simple image optimization
+  images: {
+    formats: ['image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    dangerouslyAllowSVG: true,
+  },
+
+  // Basic compiler settings
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
+  // Simple build settings
   poweredByHeader: false,
-  compress: true,
   
   // API rewrites
   async rewrites() {
@@ -22,4 +36,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = nextConfig
