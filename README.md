@@ -19,8 +19,8 @@
   <br/>
   
   **📺 Watch Our Solution Presentation:**  
-  <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank">
-    <img src="https://img.shields.io/badge/YouTube-Watch_Video-red?logo=youtube" alt="Watch on YouTube"/>
+  <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank" title="Watch LXthon 2025 Solution Presentation">
+    <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="Watch LXthon 2025 Solution Presentation on YouTube" style="width:480px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
   </a>
   
   **📄 View Our Presentation PDF:**  
