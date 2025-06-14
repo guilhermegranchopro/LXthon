@@ -1,23 +1,25 @@
-# <img src="docs/assets/logos/LXthon_logo.png" alt="LXthon Logo" width="40"/> LXthon 2025 - AI Eye Vessel Segmentation
+# <img src="frontend/public/LXthon_logo.png" alt="LXthon Logo" width="40"/> LXthon 2025 - AI Eye Vessel Segmentation
 
 <div align="center">
-  <img src="docs/assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
+  <img src="frontend/public/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
   
   **🚀 Team Prometheus - Advanced Medical AI Solutions**  
   *Guilherme Grancho • Vasco Pereira*
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+  [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
   [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.7-00a393.svg)](https://fastapi.tiangolo.com/)
   [![Next.js](https://img.shields.io/badge/Next.js-15.3.3-black.svg)](https://nextjs.org/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.3.2-3178c6.svg)](https://www.typescriptlang.org/)
-  [![Performance](https://img.shields.io/badge/Performance-Optimized-00d4aa.svg)](#performance)
+  [![AI Model](https://img.shields.io/badge/AI_Model-U--Net+EfficientNet-ff6b6b.svg)](#model)
+  [![F1-Score](https://img.shields.io/badge/F1--Score-0.73-success.svg)](#performance)
+  [![Parameters](https://img.shields.io/badge/Parameters-258M-orange.svg)](#model)
   [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
   
   <br/>
   
   **🎯 Challenge Provider:**  
-  <img src="docs/assets/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
+  <img src="frontend/public/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
   **[its.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
 </div>
 
