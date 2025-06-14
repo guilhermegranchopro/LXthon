@@ -134,30 +134,23 @@ const TechBadge = memo(function TechBadge({
 })
 
 export default function Home() {
-  // State management
-  const [isLoading, setIsLoading] = useState(false)
-  const [progress, setProgress] = useState(0)
-  const [result, setResult] = useState<AnalysisResult | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
-  const [processingStage, setProcessingStage] = useState('')
-  const [showStats, setShowStats] = useState(false)
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [prediction, setPrediction] = useState<string | null>(null); // This seems to be unused, consider removing if not needed
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null); // This seems to be unused, consider removing if not needed
+  const [isClient, setIsClient] = useState(false);
+  const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null); // Renamed from 'result' for clarity
+  const [showStats, setShowStats] = useState(false); // Added state for showing stats
+  const [currentProcessingStage, setCurrentProcessingStage] = useState<string | null>(null); // Added state for processing stage
+  const [uploadProgress, setUploadProgress] = useState(0); // Added state for upload/processing progress
 
-  // Performance hooks (monitoring removed)
-  const { prefersReducedMotion } = useAnimationState()
-  const { processFile, validateFile } = useFileProcessor()
-  // const { measureStart, measureEnd } = usePerformanceMonitor() // Removed
-  const shouldReduceMotion = useReducedMotion()
 
-  // Debounced progress for smoother updates
-  const debouncedProgress = useDebounce(progress, 50)
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-  // Animated stats with optimized timing
-  const [animatedStats, setAnimatedStats] = useState({
-    f1Score: 0,
-    speed: 0,
-    processed: 0
-  })
+  const shouldReduceMotion = useReducedMotion();
 
   // Memoized processing stages
   const processingStages = useMemo(() => [
@@ -167,7 +160,7 @@ export default function Home() {
     "Applying U-Net + EfficientNet segmentation...",
     "Calculating confidence metrics...",
     "Finalizing results..."
-  ], [])
+  ], []);
 
   // Optimized stats animation
   useEffect(() => {
@@ -176,43 +169,67 @@ export default function Home() {
         f1Score: 0.73,
         speed: 4,
         processed: 1000
-      })
-      setShowStats(true)
-    }, 500) // Reduced from 1000ms
+      });
+      setShowStats(true); // Correctly use setShowStats
+    }, 500);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []); // Removed animatedStats from dependency array as it's set inside
 
-  // Optimized API call (performance monitoring removed)
+  // Placeholder for file processing logic (replace with actual implementation or remove if not needed)
+  const validateFile = useCallback((file: File): boolean => {
+    if (!file) return false;
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    if (!allowedTypes.includes(file.type)) {
+      setError('Invalid file type. Please select a JPEG, PNG, or GIF image.');
+      return false;
+    }
+    if (file.size > maxSize) {
+      setError('File is too large. Please select an image under 10MB.');
+      return false;
+    }
+    return true;
+  }, []);
+
+  const processFile = useCallback(async (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+    });
+  }, []);
+
+
+  // Optimized API call
   const analyzeImage = useCallback(async (file: File, base64Image: string) => {
-    // measureStart('image-analysis') // Removed
-    setIsLoading(true)
-    setError(null)
-    setProgress(0)
-    setProcessingStage(processingStages[0])
+    setIsLoading(true);
+    setError(null);
+    setUploadProgress(0); // Use setUploadProgress
+    setCurrentProcessingStage(processingStages[0]); // Use setCurrentProcessingStage
 
     try {
-      // Optimized progress simulation
-      let currentStage = 0
+      let currentStageIndex = 0;
       const progressInterval = setInterval(() => {
-        setProgress((prev) => {
-          const newProgress = prev + 15
+        setUploadProgress((prev) => { // Use setUploadProgress
+          const newProgress = prev + 15;
           
-          const stageIndex = Math.floor((newProgress / 100) * processingStages.length)
-          if (stageIndex < processingStages.length && stageIndex !== currentStage) {
-            currentStage = stageIndex
-            setProcessingStage(processingStages[stageIndex])
+          const stageIndex = Math.floor((newProgress / 100) * processingStages.length);
+          if (stageIndex < processingStages.length && stageIndex !== currentStageIndex) {
+            currentStageIndex = stageIndex;
+            setCurrentProcessingStage(processingStages[stageIndex]); // Use setCurrentProcessingStage
           }
           
           if (newProgress >= 90) {
-            clearInterval(progressInterval)
-            return 90
+            clearInterval(progressInterval);
+            return 90;
           }
-          return newProgress
-        })
-      }, 600) // Faster updates
+          return newProgress;
+        });
+      }, 600);
 
-      const requestData = { image: base64Image }
+      const requestData = { image: base64Image };
 
       const response = await axios.post<PredictionResponse>(
         `${API_BASE_URL}/predict`,
@@ -221,103 +238,114 @@ export default function Home() {
           headers: { 'Content-Type': 'application/json' },
           timeout: 60000,
         }
-      )
+      );
 
-      clearInterval(progressInterval)
-      setProgress(100)
-      setProcessingStage("Analysis complete!")
+      clearInterval(progressInterval);
+      setUploadProgress(100); // Use setUploadProgress
+      setCurrentProcessingStage("Analysis complete!"); // Use setCurrentProcessingStage
 
       if (response.data.success && response.data.segmentation_mask) {
-        const analysisResult: AnalysisResult = {
+        const newAnalysisResult: AnalysisResult = { // Renamed for clarity
           originalImage: base64Image,
           segmentationMask: response.data.segmentation_mask,
           confidenceScore: response.data.confidence_score || 0,
           processingTime: response.data.processing_time || 0,
-          metrics: undefined
-        }
+          metrics: undefined 
+        };
 
-        setResult(analysisResult)
-        // measureEnd('image-analysis') // Removed
+        setAnalysisResult(newAnalysisResult); // Use setAnalysisResult
       } else {
-        throw new Error(response.data.message || 'Analysis failed')
+        throw new Error(response.data.message || 'Analysis failed');
       }
 
     } catch (err) {
-      console.error('Analysis error:', err)
+      console.error('Analysis error:', err);
       
       if (axios.isAxiosError(err)) {
         if (err.code === 'ECONNREFUSED' || err.code === 'ERR_NETWORK') {
-          setError('Cannot connect to the AI service. Please ensure the backend is running.')
+          setError('Cannot connect to the AI service. Please ensure the backend is running.');
         } else if (err.response?.data) {
-          const apiError = err.response.data as ApiError
-          setError(apiError.error || apiError.detail || 'Analysis failed')
+          const apiError = err.response.data as ApiError;
+          setError(apiError.error || apiError.detail || 'Analysis failed');
         } else if (err.request) {
-          setError('Network error. Please check your connection and try again.')
+          setError('Network error. Please check your connection and try again.');
         } else {
-          setError('Request failed. Please try again.')
+          setError('Request failed. Please try again.');
         }
       } else {
-        setError('An unexpected error occurred. Please try again.')
+        setError('An unexpected error occurred. Please try again.');
       }
     } finally {
-      setIsLoading(false)
-      setProgress(0)
+      setIsLoading(false);
+      setUploadProgress(0); // Use setUploadProgress
     }
-  }, [processingStages]) // Removed measureStart, measureEnd
+  }, [processingStages]);
 
   // Optimized handlers
   const handleImageSelect = useCallback(async (file: File, base64: string) => {
     if (!validateFile(file)) {
-      setError('Invalid file format or size. Please select a valid image under 10MB.')
-      return
+      // Error is set within validateFile
+      return;
     }
     
-    setSelectedFile(file)
-    setResult(null)
-    setError(null)
-  }, [validateFile])
+    setSelectedFile(file);
+    setAnalysisResult(null); // Use setAnalysisResult
+    setError(null);
+  }, [validateFile]);
 
   const handleAnalyze = useCallback(async () => {
-    if (!selectedFile) return
+    if (!selectedFile) return;
     
     try {
-      const base64 = await processFile(selectedFile)
-      await analyzeImage(selectedFile, base64)
+      const base64 = await processFile(selectedFile);
+      await analyzeImage(selectedFile, base64);
     } catch (error) {
-      setError('Failed to process the selected file.')
+      setError('Failed to process the selected file.');
     }
-  }, [selectedFile, processFile, analyzeImage])
+  }, [selectedFile, processFile, analyzeImage]);
 
   const handleDownloadResults = useCallback(() => {
-    if (!result) return
+    if (!analysisResult) return; // Use analysisResult
     
     const data = {
       timestamp: new Date().toISOString(),
-      confidence_score: result.confidenceScore,
-      processing_time: result.processingTime,
-      metrics: result.metrics
-    }
+      confidence_score: analysisResult.confidenceScore, // Use analysisResult
+      processing_time: analysisResult.processingTime, // Use analysisResult
+      metrics: analysisResult.metrics // Use analysisResult
+    };
     
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = 'vessel_analysis_results.json'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
-  }, [result])
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'vessel_analysis_results.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }, [analysisResult]); // Use analysisResult
 
   const resetAnalysis = useCallback(() => {
-    setResult(null)
-    setError(null)
-    setSelectedFile(null)
-    setProgress(0)
-  }, [])
+    setAnalysisResult(null); // Use setAnalysisResult
+    setError(null);
+    setSelectedFile(null);
+    setUploadProgress(0); // Use setUploadProgress
+    setCurrentProcessingStage(null); // Clear processing stage
+  }, []);
 
-  // Throttled handlers for better performance
-  const throttledAnalyze = useThrottle(handleAnalyze, 1000)
+  // Throttling can be re-implemented if a useThrottle hook is available and correctly imported
+  // For now, direct call:
+  // const throttledAnalyze = useThrottle(handleAnalyze, 1000); 
+  const throttledAnalyze = handleAnalyze;
+
+
+  // Animated stats with optimized timing
+  const [animatedStats, setAnimatedStats] = useState({
+    f1Score: 0,
+    speed: 0,
+    processed: 0
+  });
+
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -450,7 +478,7 @@ export default function Home() {
 
               {/* Enhanced Analysis Controls */}
               <AnimatePresence mode="wait">
-                {selectedFile && !result && (
+                {selectedFile && !analysisResult && ( // Use analysisResult
                   <motion.div
                     variants={optimizedSlideIn}
                     initial="initial"
@@ -506,146 +534,100 @@ export default function Home() {
               {/* Optimized Loading Progress */}
               <AnimatePresence mode="wait">
                 {isLoading && (
-                  <motion.div
-                    variants={optimizedSlideIn}
+                  <motion.div 
+                    className="mt-6 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
+                    variants={optimizedFadeInUp}
                     initial="initial"
                     animate="animate"
                     exit="exit"
                   >
-                    <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-md">
-                      <CardContent className="p-8">
-                        <div className="space-y-6">
-                          <div className="flex items-center space-x-4">
-                            <motion.div 
-                              className="p-3 bg-blue-100 rounded-full"
-                              variants={optimizedRotate}
-                              animate="animate"
-                            >
-                              <Brain className="h-6 w-6 text-blue-600" />
-                            </motion.div>
-                            <div>
-                              <span className="font-semibold text-gray-800 text-lg">AI Processing</span>
-                              <p className="text-sm text-gray-600 mt-1">{processingStage}</p>
-                            </div>
-                          </div>
-                          
-                          <div className="space-y-3">
-                            <div className="flex justify-between items-center">
-                              <span className="text-sm font-medium text-gray-700">Progress</span>
-                              <span className="text-sm font-bold text-blue-600">{Math.round(debouncedProgress)}%</span>
-                            </div>
-                            <ProgressBar 
-                              value={debouncedProgress} 
-                              className="h-4" 
-                              animated={true}
-                            />
-                          </div>
-                          
-                          <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="flex items-center space-x-2 text-sm text-gray-600 bg-blue-50 p-3 rounded-lg"
+                    <div className="flex items-center mb-3">
+                      <LoadingSpinner className="mr-3" />
+                      <p className="text-lg font-medium text-gray-700">{currentProcessingStage || "Processing..."}</p> {/* Display currentProcessingStage */}
+                    </div>
+                    <ProgressBar progress={uploadProgress} /> {/* Use uploadProgress */}
+                    <p className="text-sm text-gray-500 mt-2 text-center">Please wait, AI analysis in progress...</p>
+                  </motion.div>
+                )}
+
+                {error && (
+                  <motion.div 
+                    className="mt-6 p-6 bg-red-50/80 backdrop-blur-sm rounded-2xl shadow-lg border border-red-200/50 text-red-700"
+                    variants={optimizedFadeInUp}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                  >
+                    <div className="flex items-start space-x-3">
+                      <div className="p-2 bg-red-100 rounded-full">
+                        <AlertCircle className="h-5 w-5 text-red-500" />
+                      </div>
+                      <div className="space-y-3 flex-1">
+                        <h4 className="font-medium text-red-900">Analysis Failed</h4>
+                        <p className="text-sm text-red-700 leading-relaxed">{error}</p>
+                        <motion.div variants={optimizedHoverScale} whileHover="whileHover" whileTap="whileTap">
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={throttledAnalyze}
+                            className="border-red-300 text-red-700 hover:bg-red-100 transition-colors"
                           >
-                            <TrendingUp className="h-4 w-4 text-blue-600" />
-                            <span>Our U-Net + EfficientNet model is analyzing {(debouncedProgress * 512 * 512 / 100).toFixed(0)} pixels...</span>
+                            Try Again
+                          </Button>
+                        </motion.div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {analysisResult && (
+                  <motion.div
+                    className="mt-6 p-6 bg-green-50/80 backdrop-blur-sm rounded-2xl shadow-lg border border-green-200/50"
+                    variants={optimizedFadeInUp}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                  >
+                    <div className="flex items-start space-x-3">
+                      <div className="p-2 bg-green-100 rounded-full">
+                        <CheckCircle className="h-5 w-5 text-green-500" />
+                      </div>
+                      <div className="space-y-3 flex-1">
+                        <h4 className="font-medium text-green-900">Analysis Complete!</h4>
+                        <p className="text-sm text-green-700 leading-relaxed">
+                          Vessel segmentation completed successfully with high precision. 
+                          Confidence score: {(analysisResult.confidenceScore * 100).toFixed(1)}%
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          <motion.div variants={optimizedHoverScale} whileHover="whileHover" whileTap="whileTap">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={resetAnalysis}
+                              className="border-green-300 text-green-700 hover:bg-green-100 transition-colors"
+                            >
+                              Analyze New Image
+                            </Button>
+                          </motion.div>
+                          <motion.div variants={optimizedHoverScale} whileHover="whileHover" whileTap="whileTap">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={handleDownloadResults}
+                              className="border-green-300 text-green-700 hover:bg-green-100 transition-colors"
+                            >
+                              Download Results
+                            </Button>
                           </motion.div>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Optimized Error Display */}
-              <AnimatePresence mode="wait">
-                {error && (
-                  <motion.div
-                    variants={optimizedSlideIn}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                  >
-                    <Card className="border-red-200 bg-red-50/80 backdrop-blur-sm shadow-lg">
-                      <CardContent className="p-6">
-                        <div className="flex items-start space-x-3">
-                          <div className="p-2 bg-red-100 rounded-full">
-                            <AlertCircle className="h-5 w-5 text-red-500" />
-                          </div>
-                          <div className="space-y-3 flex-1">
-                            <h4 className="font-medium text-red-900">Analysis Failed</h4>
-                            <p className="text-sm text-red-700 leading-relaxed">{error}</p>
-                            <motion.div variants={optimizedHoverScale} whileHover="whileHover" whileTap="whileTap">
-                              <Button 
-                                variant="outline" 
-                                size="sm"
-                                onClick={throttledAnalyze}
-                                className="border-red-300 text-red-700 hover:bg-red-100 transition-colors"
-                              >
-                                Try Again
-                              </Button>
-                            </motion.div>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Optimized Success Actions */}
-              <AnimatePresence mode="wait">
-                {result && (
-                  <motion.div
-                    variants={optimizedSlideIn}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                  >
-                    <Card className="border-green-200 bg-green-50/80 backdrop-blur-sm shadow-lg">
-                      <CardContent className="p-6">
-                        <div className="flex items-start space-x-3">
-                          <div className="p-2 bg-green-100 rounded-full">
-                            <CheckCircle className="h-5 w-5 text-green-500" />
-                          </div>
-                          <div className="space-y-3 flex-1">
-                            <h4 className="font-medium text-green-900">Analysis Complete!</h4>
-                            <p className="text-sm text-green-700 leading-relaxed">
-                              Vessel segmentation completed successfully with high precision. 
-                              Confidence score: {(result.confidenceScore * 100).toFixed(1)}%
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              <motion.div variants={optimizedHoverScale} whileHover="whileHover" whileTap="whileTap">
-                                <Button 
-                                  variant="outline" 
-                                  size="sm"
-                                  onClick={resetAnalysis}
-                                  className="border-green-300 text-green-700 hover:bg-green-100 transition-colors"
-                                >
-                                  Analyze New Image
-                                </Button>
-                              </motion.div>
-                              <motion.div variants={optimizedHoverScale} whileHover="whileHover" whileTap="whileTap">
-                                <Button 
-                                  variant="outline" 
-                                  size="sm"
-                                  onClick={handleDownloadResults}
-                                  className="border-green-300 text-green-700 hover:bg-green-100 transition-colors"
-                                >
-                                  Download Results
-                                </Button>
-                              </motion.div>
-                            </div>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </motion.div>
 
-            {/* Right Column - Results and Information */}
+            {/* Right Column - Results */}
             <motion.div 
               className="space-y-8"
               variants={optimizedSlideIn}
@@ -653,7 +635,7 @@ export default function Home() {
               animate="animate"
             >
               <AnimatePresence mode="wait">
-                {result ? (
+                {analysisResult ? (
                   <motion.div
                     variants={optimizedSlideIn}
                     initial="initial"
@@ -661,8 +643,9 @@ export default function Home() {
                     exit="exit"
                   >
                     <ResultDisplay 
-                      result={result} 
-                      onDownload={handleDownloadResults}
+                      result={analysisResult} 
+                      onReset={resetAnalysis} 
+                      onDownload={handleDownloadResults} 
                     />
                   </motion.div>
                 ) : (
@@ -820,7 +803,7 @@ export default function Home() {
 
           {/* Optimized Floating Quick Actions */}
           <AnimatePresence>
-            {!isLoading && !result && selectedFile && (
+            {!isLoading && !analysisResult && selectedFile && (
               <motion.div
                 className="fixed bottom-8 right-8 z-50"
                 variants={optimizedSlideIn}
@@ -856,7 +839,7 @@ export default function Home() {
 
           {/* Optimized Success Confetti Effect */}
           <AnimatePresence>
-            {result && (
+            {analysisResult && (
               <motion.div
                 className="fixed inset-0 pointer-events-none z-40"
                 initial={{ opacity: 0 }}
@@ -973,5 +956,5 @@ export default function Home() {
       {/* PerformanceMonitor removed to eliminate errors */}
       <PerformanceDashboard />
     </div>
-  )
+  );
 }

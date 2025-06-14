@@ -21,9 +21,10 @@ import type { AnalysisResult } from '@/types'
 interface ResultDisplayProps {
   result: AnalysisResult
   onDownload?: () => void
+  onReset?: () => void // Added onReset prop
 }
 
-export default function ResultDisplay({ result, onDownload }: ResultDisplayProps) {
+export default function ResultDisplay({ result, onDownload, onReset }: ResultDisplayProps) {
   const [showOverlay, setShowOverlay] = useState(true)
   const [activeTab, setActiveTab] = useState<'original' | 'mask' | 'overlay'>('overlay')
 
@@ -382,6 +383,22 @@ export default function ResultDisplay({ result, onDownload }: ResultDisplayProps
           </CardContent>
         </Card>
       )}
+
+      {/* Reset Button */}
+      <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+        <CardContent className="p-6">
+          <div className="flex justify-center">
+            <Button 
+              onClick={onReset} // Use onReset prop
+              variant="outline"
+              className="w-full border-gray-300 hover:bg-gray-100 transition-colors duration-200"
+            >
+              <Layers className="h-4 w-4 mr-2" />
+              Analyze Another Image
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }

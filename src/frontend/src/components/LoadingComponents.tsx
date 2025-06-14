@@ -63,7 +63,7 @@ const LoadingSpinner = memo(function LoadingSpinner({
 })
 
 interface ProgressBarProps {
-  value: number
+  progress: number // Renamed from value to progress
   max?: number
   className?: string
   showLabel?: boolean
@@ -71,13 +71,13 @@ interface ProgressBarProps {
 }
 
 const ProgressBar = memo(function ProgressBar({
-  value,
+  progress, // Renamed from value to progress
   max = 100,
   className = '',
   showLabel = false,
   animated = true
 }: ProgressBarProps) {
-  const percentage = Math.min((value / max) * 100, 100)
+  const percentage = Math.min((progress / max) * 100, 100) // Renamed from value to progress
 
   return (
     <div className={`w-full bg-gray-200 rounded-full overflow-hidden ${className}`}>
