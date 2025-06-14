@@ -23,7 +23,7 @@ class ModelService:
         self.model = None
         self.model_loaded = False
         self.model_path = model_path or os.path.join(
-            os.path.dirname(__file__), '../../models/unet_eye_segmentation.keras'
+            os.path.dirname(__file__), '../../../data/models/unet_eye_segmentation.keras'
         )
         self.input_size = (256, 256)  # Match the trained model input size
         
