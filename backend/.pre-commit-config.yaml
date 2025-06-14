@@ -1,0 +1,26 @@
+# Pre-commit hooks for code quality
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.6
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=10240']  # 10MB limit
+
+  - repo: https://github.com/python-poetry/poetry
+    rev: '1.6.0'
+    hooks:
+      - id: poetry-check
+        files: pyproject.toml
+        pass_filenames: false
