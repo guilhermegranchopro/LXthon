@@ -2,36 +2,7 @@
 
 <div align="center">
   <img src="assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
-  
-  **🚀 Team Prometheus - Advanced Medical AI Solutions**  
-  *Guilherme Grancho • Vasco Pereira*
-  
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-  [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.7-00a393.svg)](https://fastapi.tiangolo.com/)
-  [![Next.js](https://img.shields.io/badge/Next.js-15.3.3-black.svg)](https://nextjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.3.2-3178c6.svg)](https://www.typescriptlang.org/)
-  [![AI Model](https://img.shields.io/badge/AI_Model-U--Net+EfficientNet-ff6b6b.svg)](#model-architecture)
-  [![F1-Score](https://img.shields.io/badge/F1--Score-0.73-success.svg)](#performance-metrics)
-  [![Parameters](https://img.shields.io/badge/Parameters-258M-orange.svg)](#model-architecture)
-  [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-  
-  <br/>
-  
-  **📺 Watch Our Solution Presentation:**  
-  <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank" title="Watch LXthon 2025 Solution Presentation">
-    <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="Watch LXthon 2025 Solution Presentation on YouTube" style="width:480px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
-  </a>
-  
-  **📄 View Our Presentation PDF:**
-  <a href="LXthon_Presentation.pdf" target="_blank" title="View LXthon Presentation PDF">
-    <img src="image.png" alt="LXthon Presentation Preview" style="width:700px; max-width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 5px;"/>
-  </a>
-  
-  <br/>
-  
-  **🎯 Challenge Provider:**  
-  <img src="assets/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
+  <br/> <!-- Added a line break for better spacing if needed -->
   **[its.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
 </div>
 
@@ -40,12 +11,6 @@
 ## **⚡ BREAKTHROUGH RESULTS - AI Eye Vessel Segmentation**
 
 <div align="center">
-  
-  ### 🔬 **Real-Time Medical AI in Action**
-  
-  <img src="assets/output_example.png" alt="Eye Vessel Segmentation Results" width="90%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);"/>
-  
-  **🎯 Revolutionary blood vessel detection and segmentation in slit-lamp eye images**  
   
   > *From raw medical image → AI analysis → precise vessel mapping in under 4 seconds*
   
@@ -117,7 +82,7 @@ An **ultra-high-performance** deep learning solution for automated blood vessel 
 - **📚 Documentation**: Comprehensive API docs with OpenAPI/Swagger
 - **🧪 Testing**: Unit tests, integration tests, and performance benchmarks
 
-## �🏗️ **System Architecture**
+## 🏗️ **System Architecture**
 
 ```mermaid
 graph TB
@@ -208,7 +173,7 @@ npm run dev
 
 ## 💻 **Technology Stack**
 
-### � **Frontend Excellence**
+###  **Frontend Excellence**
 - **⚡ Next.js 15.3.3**: Latest App Router with Turbopack
 - **⚛️ React 19.1.0**: Concurrent features and Server Components
 - **🎭 TypeScript 5.3.2**: Type-safe development with strict mode
@@ -245,7 +210,7 @@ npm run dev
 - **🔒 Security**: CORS, input validation, rate limiting
 - **📚 Documentation**: OpenAPI/Swagger automatic docs
 
-## �🎮 **Usage Guide**
+## 🎮 **Usage Guide**
 
 ### 🌐 Web Interface
 
@@ -493,117 +458,24 @@ LXthon/
 ├── 🚀 deployment/                  # Deployment configurations
 │   ├── docker/                   # Docker compose files
 │   ├── kubernetes/               # K8s manifests
-│   └── cloud/                    # Cloud deployment
+│   └── scripts/                  # Deployment scripts
 │
-└── 🔧 tools/                       # Development tools
-    ├── linting/                  # Code quality tools
-    ├── testing/                  # Testing utilities
-    └── monitoring/               # Performance monitoring
-```
-
-> **📖 Complete Structure**: See [`docs/PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) for detailed directory breakdown.
-
-## 🤖 Model Architecture
-
-### Advanced U-Net + EfficientNet
-
-- **Parameters**: 258M (optimized architecture)
-- **Input Size**: 256×256 RGB images  
-- **Output**: Binary vessel segmentation masks
-- **Architecture**: U-Net backbone with EfficientNet encoder
-- **Training**: Custom slit-lamp eye vessel dataset
-- **Performance**: F1-Score 0.73, < 4 second inference time
-
-### Model Files
-
-- **Location**: `data/models/unet_eye_segmentation.keras`
-- **Format**: TensorFlow Keras (.keras)
-- **Size**: ~300MB
-- **Version**: Production v1.0 (optimized)
-
-## 📊 Performance Metrics
-
-| Metric | Value | Improvement |
-|--------|-------|-------------|
-| **F1-Score** | **0.73** | High precision vessel detection |
-| **Model Parameters** | **258M** | Advanced architecture |
-| **Inference Time** | **< 4 seconds** | Real-time processing |
-| **API Response** | **< 500ms** | Lightning-fast API |
-| **Frontend Load** | **< 1 second** | Optimized bundle |
-| **Animation FPS** | **60 FPS** | Hardware-accelerated |
-| **Memory Usage** | **~2GB** | Efficient model loading |
-
-## 🌐 Deployment
-
-### Development
-
-```bash
-# Local development (recommended)
-make dev
-
-# Docker development
-docker-compose up
-```
-
-### Production
-
-```bash
-# Production build
-make build
-
-# Production deployment with Docker
-docker-compose -f deployment/docker/docker-compose.prod.yml up -d
-```
-
-### Environment Configuration
-
-Environment files are organized in the `config/` directory:
-
-- `config/.env.development` - Development settings
-- `config/.env.production` - Production settings
-
-## 📁 Repository Structure
-
-```text
-LXthon/
-├── 📄 README.md                    # This comprehensive guide
-├── 📄 REPOSITORY_STRUCTURE.md     # Detailed structure documentation
-├── 📄 LICENSE                      # MIT License
-├── 📄 Makefile                     # Build automation
-├── 📄 docker-compose.yml           # Multi-service orchestration
-├── 📄 pyproject.toml              # Python project configuration
+├── 🖼️ assets/                      # Global assets (logos, etc.)
+│   ├── LXthon_Teaser.pdf
+│   ├── output_example.png
+│   └── logos/
+│       ├── its_logo.png
+│       ├── LXthon_logo.png
+│       └── prometheus_logo.png
 │
-├── 📂 assets/                      # Project assets
-│   ├── � LXthon_Teaser.pdf       # Project presentation
-│   └── 📄 output_example.png      # Main results showcase
+├── 🪵 logs/                        # Log files
+│   ├── backend.log
+│   └── frontend.log
 │
-├── 📂 backend/                     # FastAPI Backend Service
-│   ├── 📄 requirements.txt        # Python dependencies
-│   └── 📂 app/                    # Application code
-│       ├── 📄 main.py             # FastAPI entry point
-│       ├── 📂 models/             # Data models
-│       ├── 📂 services/           # Business logic (AI model)
-│       └── 📂 utils/              # Utility functions
+├── ⚙️ tools/                       # Developer tools
+│   ├── linting/
+│   ├── monitoring/
+│   └── testing/
 │
-├── 📂 frontend/                    # Next.js Frontend Application
-│   ├── 📄 package.json           # Node.js dependencies
-│   ├── 📄 next.config.js         # Next.js configuration
-│   ├── 📂 public/                # Static assets
-│   └── 📂 src/                    # Source code
-│       ├── 📂 app/                # App Router pages
-│       ├── 📂 components/         # React components
-│       └── 📂 lib/                # Utility libraries
-│
-├── 📂 data/                       # Data and Models
-│   ├── 📂 datasets/              # Training/test datasets
-│   ├── 📂 models/                 # ML Models (258M parameters)
-│   └── 📂 samples/                # Sample images
-│
-├── 📂 docs/                       # Documentation
-│   ├── 📂 project-reports/       # Development reports
-│   └── 📂 legacy/                 # Legacy documentation
-│
-└── 📂 config/                     # Configuration Files
-    ├── 📄 .env.development       # Development environment
-    └── 📄 .env.production        # Production environment
+└── 📄 .gitignore                   # Git ignore file
 ```
