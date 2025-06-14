@@ -507,7 +507,7 @@ The project exemplifies the intersection of artificial intelligence and healthca
 ## 📞 Support
 
 For questions or support:
-- 📧 Email: team@prometheus.dev
+- 📧 Email: guilhermegranchopro@gmail.com
 - 📝 Issues: GitHub Issues
 - 📖 Documentation: `/docs/`
 
