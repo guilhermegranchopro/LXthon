@@ -19,7 +19,7 @@
   <br/>
   
   **🎯 Challenge Provider:**  
-  <img src="frontend/public/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
+  <img src="frontend/public/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
   **[its.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
 </div>
 
