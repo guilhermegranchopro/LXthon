@@ -2,7 +2,8 @@
     "conventionalCommits.scopes": [
         "Next.js Setup & FastAPI Setup",
         "Improve the Next.js web app",
-        "Add Docs"
+        "Add Docs",
+        "Improve the README.md"
     ],
     "python.defaultInterpreterPath": "./backend/.venv/bin/python",
     "python.terminal.activateEnvironment": true,

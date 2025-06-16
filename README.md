@@ -6,6 +6,23 @@
   **🚀 Team Prometheus - Advanced Medical AI Solutions**  
   *Guilherme Grancho • Vasco Pereira*
   
+  ## 🏆 **HACKATHON WINNERS** 🏆
+  
+  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 15px; margin: 20px 0; border: 3px solid #ffd700;">
+    <h3 style="color: #ffd700; margin: 0 0 10px 0;">🎉 FIRST PLACE - LXthon 2025 🎉</h3>
+    <p style="color: white; margin: 0; font-size: 18px; font-weight: bold;">
+      🥇 Winner of the LXthon 2025 Hackathon<br/>
+      🏅 Best AI Medical Imaging Solution<br/>
+      🌟 Outstanding Innovation in Computer Vision
+    </p>
+  </div>
+  
+  **🏆 View Our Winning Certificate:**  
+  <a href="certificate.pdf" target="_blank" title="View LXthon 2025 Winning Certificate">
+    <img src="image2.png" alt="LXthon 2025 Winning Certificate" style="width:400px; max-width: 100%; border: 3px solid #ffd700; border-radius: 12px; box-shadow: 0 6px 20px rgba(255,215,0,0.3); margin: 10px 0;"/>
+  </a>
+  
+  [![🏆 LXthon Winner](https://img.shields.io/badge/🏆_LXthon_2025-WINNER-gold.svg?style=for-the-badge)](certificate.pdf)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
   [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.7-00a393.svg)](https://fastapi.tiangolo.com/)
