@@ -12,8 +12,8 @@
     <tr>
       <td align="center" width="33%">
         <strong>🏆 Certificate</strong><br/>
-        <a href="certificate.pdf" target="_blank">
-          <img src="image2.png" alt="Certificate" style="width:150px; border: 2px solid #ffd700; border-radius: 8px;"/>
+        <a href="presentations/certificate.pdf" target="_blank">
+          <img src="presentations/image2.png" alt="Certificate" style="width:150px; border: 2px solid #ffd700; border-radius: 8px;"/>
         </a>
       </td>
       <td align="center" width="33%">
@@ -24,14 +24,14 @@
       </td>
       <td align="center" width="33%">
         <strong>📄 PDF Slides</strong><br/>
-        <a href="LXthon_Presentation.pdf" target="_blank">
-          <img src="image.png" alt="PDF Preview" style="width:150px; border: 1px solid #ddd; border-radius: 8px;"/>
+        <a href="presentations/LXthon_Presentation.pdf" target="_blank">
+          <img src="presentations/image.png" alt="PDF Preview" style="width:150px; border: 1px solid #ddd; border-radius: 8px;"/>
         </a>
       </td>
     </tr>
   </table>
   
-  [![🏆 LXthon Winner](https://img.shields.io/badge/🏆_LXthon_2025-WINNER-gold.svg?style=for-the-badge)](certificate.pdf)
+  [![🏆 LXthon Winner](https://img.shields.io/badge/🏆_LXthon_2025-WINNER-gold.svg?style=for-the-badge)](presentations/certificate.pdf)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
   [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.7-00a393.svg)](https://fastapi.tiangolo.com/)

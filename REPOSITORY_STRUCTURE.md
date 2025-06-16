@@ -10,10 +10,17 @@ LXthon/
 ├── 📄 docker-compose.yml           # Multi-service orchestration
 ├── 📄 pyproject.toml              # Python project configuration
 ├── 📄 REPOSITORY_STRUCTURE.md     # This file
-├── 📄 PROJECT_STRUCTURE.md        # Legacy structure doc
 │
-├── 📂 assets/                      # Project assets
-│   └── 📄 LXthon_Teaser.pdf       # Project presentation
+├── � presentations/               # 🏆 Winning Materials & Presentations
+│   ├── 📄 README.md               # Presentations documentation
+│   ├── 📄 certificate.pdf         # 🥇 LXthon 2025 winning certificate
+│   ├── 📄 LXthon_Presentation.pdf # Complete project presentation
+│   ├── 📄 image.png               # PDF preview for README
+│   └── 📄 image2.png              # Certificate preview for README
+│
+├── 📂 assets/                      # Project assets and logos
+│   ├── 📄 LXthon_Teaser.pdf       # Project teaser document
+│   └── 📂 logos/                   # Brand logos and assets
 │
 ├── 📂 backend/                     # FastAPI Backend Service
 │   ├── 📄 Dockerfile              # Backend containerization
