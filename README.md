@@ -18,15 +18,29 @@
   
   <br/>
   
-  **📺 Watch Our Solution Presentation:**  
-  <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank" title="Watch LXthon 2025 Solution Presentation">
-    <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="Watch LXthon 2025 Solution Presentation on YouTube" style="width:480px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
-  </a>
-  
-  **📄 View Our Presentation PDF:**
-  <a href="LXthon_Presentation.pdf" target="_blank" title="View LXthon Presentation PDF">
-    <img src="image.png" alt="LXthon Presentation Preview" style="width:700px; max-width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 5px;"/>
-  </a>
+<div style="display:flex; flex-wrap:wrap; gap:1rem;">
+  <div style="flex:1; min-width:300px; text-align:center;">
+    **📺 Watch Our Solution Presentation:**<br/>
+    <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank" title="Watch LXthon 2025 Solution Presentation">
+      <img
+        src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg"
+        alt="Watch LXthon 2025 Solution Presentation on YouTube"
+        style="width:100%; max-width:480px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15);"
+      />
+    </a>
+  </div>
+
+  <div style="flex:1; min-width:300px; text-align:center;">
+    **📄 View Our Presentation PDF:**<br/>
+    <a href="LXthon_Presentation.pdf" target="_blank" title="View LXthon Presentation PDF">
+      <img
+        src="image.png"
+        alt="LXthon Presentation Preview"
+        style="width:100%; max-width:700px; border:1px solid #ddd; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin-top:5px;"
+      />
+    </a>
+  </div>
+</div>
   
   <br/>
   
