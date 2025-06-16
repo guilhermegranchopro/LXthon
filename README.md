@@ -1,26 +1,35 @@
 # <img src="assets/logos/LXthon_logo.png" alt="LXthon Logo" width="40"/> LXthon 2025 - AI Eye Vessel Segmentation
 
 <div align="center">
-  <img src="assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
   
-  **🚀 Team Prometheus - Advanced Medical AI Solutions**  
+  **🚀 <img src="assets/logos/prometheus_logo.png" alt="Prometheus" width="30"/> Team Prometheus - Advanced Medical AI Solutions**  
   *Guilherme Grancho • Vasco Pereira*
   
-  ## 🏆 **HACKATHON WINNERS** 🏆
+  ## 🏆 **FIRST PLACE WINNER - LXthon 2025** 🏆
+  **🥇 Best AI Medical Imaging Solution • 🌟 Outstanding Innovation in Computer Vision**
   
-  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 15px; margin: 20px 0; border: 3px solid #ffd700;">
-    <h3 style="color: #ffd700; margin: 0 0 10px 0;">🎉 FIRST PLACE - LXthon 2025 🎉</h3>
-    <p style="color: white; margin: 0; font-size: 18px; font-weight: bold;">
-      🥇 Winner of the LXthon 2025 Hackathon<br/>
-      🏅 Best AI Medical Imaging Solution<br/>
-      🌟 Outstanding Innovation in Computer Vision
-    </p>
-  </div>
-  
-  **🏆 View Our Winning Certificate:**  
-  <a href="certificate.pdf" target="_blank" title="View LXthon 2025 Winning Certificate">
-    <img src="image2.png" alt="LXthon 2025 Winning Certificate" style="width:400px; max-width: 100%; border: 3px solid #ffd700; border-radius: 12px; box-shadow: 0 6px 20px rgba(255,215,0,0.3); margin: 10px 0;"/>
-  </a>
+  <table>
+    <tr>
+      <td align="center" width="33%">
+        <strong>🏆 Certificate</strong><br/>
+        <a href="certificate.pdf" target="_blank">
+          <img src="image2.png" alt="Certificate" style="width:150px; border: 2px solid #ffd700; border-radius: 8px;"/>
+        </a>
+      </td>
+      <td align="center" width="33%">
+        <strong>📺 Presentation</strong><br/>
+        <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank">
+          <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="YouTube Video" style="width:150px; border-radius: 8px;"/>
+        </a>
+      </td>
+      <td align="center" width="33%">
+        <strong>📄 PDF Slides</strong><br/>
+        <a href="LXthon_Presentation.pdf" target="_blank">
+          <img src="image.png" alt="PDF Preview" style="width:150px; border: 1px solid #ddd; border-radius: 8px;"/>
+        </a>
+      </td>
+    </tr>
+  </table>
   
   [![🏆 LXthon Winner](https://img.shields.io/badge/🏆_LXthon_2025-WINNER-gold.svg?style=for-the-badge)](certificate.pdf)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -33,30 +42,8 @@
   [![Parameters](https://img.shields.io/badge/Parameters-258M-orange.svg)](#model-architecture)
   [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
   
-  <br/>
+  **🎯 Challenge Provider:** <img src="assets/logos/its_logo.png" alt="ITS.xyz" width="80"/> **[its.xyz](https://its.xyz)**
   
-  <table>
-    <tr>
-      <td align="center" width="50%">
-        <strong>📺 Watch Our Solution Presentation:</strong><br/>
-        <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank" title="Watch LXthon 2025 Solution Presentation">
-          <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="Watch LXthon 2025 Solution Presentation on YouTube" style="width:320px; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
-        </a>
-      </td>
-      <td align="center" width="50%">
-        <strong>📄 View Our Presentation PDF:</strong><br/>
-        <a href="LXthon_Presentation.pdf" target="_blank" title="View LXthon Presentation PDF">
-          <img src="image.png" alt="LXthon Presentation Preview" style="width:320px; max-width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
-        </a>
-      </td>
-    </tr>
-  </table>
-  
-  <br/>
-  
-  **🎯 Challenge Provider:**  
-  <img src="assets/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
-  **[its.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
 </div>
 
 ---
