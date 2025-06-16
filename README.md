@@ -710,7 +710,7 @@ For questions, support, or collaboration:
 
 *Advancing medical AI through innovative computer vision solutions*
 
-[[⭐ Star this repository](https://github.com/guilhermegranchopro/LXthon/tree/main)](../../stargazers)
-[[🍴 Fork this repository](https://github.com/guilhermegranchopro/LXthon/tree/main)](../../network/members)
+[![⭐ Star this repository](https://github.com/guilhermegranchopro/LXthon/tree/main)](../../stargazers)
+[![🍴 Fork this repository](https://github.com/guilhermegranchopro/LXthon/tree/main)](../../network/members)
 
 </div>
