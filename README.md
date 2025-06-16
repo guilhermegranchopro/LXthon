@@ -23,9 +23,9 @@
     <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="Watch LXthon 2025 Solution Presentation on YouTube" style="width:480px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
   </a>
   
-  **📄 View Our Presentation PDF:**  
-  <a href="LXthon_Presentation.pdf" target="_blank">
-    <img src="https://img.shields.io/badge/PDF-View_Presentation-blue?logo=adobeacrobatreader" alt="View PDF Presentation"/>
+  **📄 View Our Presentation PDF:**
+  <a href="LXthon_Presentation.pdf" target="_blank" title="View LXthon Presentation PDF">
+    <img src="image.png" alt="LXthon Presentation Preview" style="width:700px; max-width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 5px;"/>
   </a>
   
   <br/>
