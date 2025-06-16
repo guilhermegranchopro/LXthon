@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  **🚀 <img src="assets/logos/prometheus_logo.png" alt="Prometheus" width="30"/> Team Prometheus - Advanced Medical AI Solutions**  
+  **🚀 <img src="assets/logos/prometheus_logo.png" alt="Prometheus" width="20"/> Team Prometheus - Advanced Medical AI Solutions**  
   *Guilherme Grancho • Vasco Pereira*
   
   ## 🏆 **FIRST PLACE WINNER - LXthon 2025** 🏆
