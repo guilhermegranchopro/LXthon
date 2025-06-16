@@ -1,11 +1,37 @@
 # <img src="assets/logos/LXthon_logo.png" alt="LXthon Logo" width="40"/> LXthon 2025 - AI Eye Vessel Segmentation
 
 <div align="center">
-  <img src="assets/logos/prometheus_logo.png" alt="Team Prometheus Logo" width="250"/>
   
-  **🚀 Team Prometheus - Advanced Medical AI Solutions**  
+  **🚀 <img src="assets/logos/prometheus_logo.png" alt="Prometheus" width="20"/> Team Prometheus - Advanced Medical AI Solutions**  
   *Guilherme Grancho • Vasco Pereira*
   
+  ## 🏆 **FIRST PLACE WINNER - LXthon 2025** 🏆
+  **🥇 Best AI Medical Imaging Solution • 🌟 Outstanding Innovation in Computer Vision**
+  
+  <table>
+    <tr>
+      <td align="center" width="33%">
+        <strong>🏆 Certificate</strong><br/>
+        <a href="presentations/certificate.pdf" target="_blank">
+          <img src="presentations/image2.png" alt="Certificate" style="width:150px; border: 2px solid #ffd700; border-radius: 8px;"/>
+        </a>
+      </td>
+      <td align="center" width="33%">
+        <strong>📺 Presentation</strong><br/>
+        <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank">
+          <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="YouTube Video" style="width:150px; border-radius: 8px;"/>
+        </a>
+      </td>
+      <td align="center" width="33%">
+        <strong>📄 PDF Slides</strong><br/>
+        <a href="presentations/LXthon_Presentation.pdf" target="_blank">
+          <img src="presentations/image.png" alt="PDF Preview" style="width:150px; border: 1px solid #ddd; border-radius: 8px;"/>
+        </a>
+      </td>
+    </tr>
+  </table>
+  
+  [![🏆 LXthon Winner](https://img.shields.io/badge/🏆_LXthon_2025-WINNER-gold.svg?style=for-the-badge)](presentations/certificate.pdf)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
   [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.7-00a393.svg)](https://fastapi.tiangolo.com/)
@@ -16,23 +42,8 @@
   [![Parameters](https://img.shields.io/badge/Parameters-258M-orange.svg)](#model-architecture)
   [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
   
-  <br/>
+  **🎯 Challenge Provider:** <img src="assets/logos/its_logo.png" alt="ITS.xyz" width="80"/> **[its.xyz](https://its.xyz)**
   
-  **📺 Watch Our Solution Presentation:**  
-  <a href="https://www.youtube.com/watch?v=zhGSwGSmT8g" target="_blank" title="Watch LXthon 2025 Solution Presentation">
-    <img src="https://img.youtube.com/vi/zhGSwGSmT8g/hqdefault.jpg" alt="Watch LXthon 2025 Solution Presentation on YouTube" style="width:480px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
-  </a>
-  
-  **📄 View Our Presentation PDF:**  
-  <a href="LXthon_Presentation.pdf" target="_blank">
-    <img src="https://img.shields.io/badge/PDF-View_Presentation-blue?logo=adobeacrobatreader" alt="View PDF Presentation"/>
-  </a>
-  
-  <br/>
-  
-  **🎯 Challenge Provider:**  
-  <img src="assets/logos/its_logo.png" alt="ITS.xyz Logo" width="120"/>  
-  **[its.xyz](https://its.xyz)** - Advanced Medical Imaging Solutions
 </div>
 
 ---
@@ -710,7 +721,7 @@ For questions, support, or collaboration:
 
 *Advancing medical AI through innovative computer vision solutions*
 
-[![⭐ Star this repository](https://img.shields.io/github/stars/yourusername/LXthon-2025-Eye-Vessel-Segmentation?style=social)](../../stargazers)
-[![🍴 Fork this repository](https://img.shields.io/github/forks/yourusername/LXthon-2025-Eye-Vessel-Segmentation?style=social)](../../network/members)
+[![⭐ Star this repository](https://img.shields.io/github/stars/guilhermegranchopro/LXthon?style=social)](https://github.com/guilhermegranchopro/LXthon/stargazers)
+[![🍴 Fork this repository](https://img.shields.io/github/forks/guilhermegranchopro/LXthon?style=social)](https://github.com/guilhermegranchopro/LXthon/fork)
 
 </div>
